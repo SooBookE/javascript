@@ -1,0 +1,11 @@
+table *{
+    text-align: center;
+    border: 1px solid black;
+}
+th {
+    background-color: aqua;
+}
+table {
+    border-collapse: collapse;
+}
+/* 엥 클래스 선언 안 해도 콜랩스 잘 되네? 될 때도 있고 안 될 때도 있음 */
