@@ -39,10 +39,10 @@ table += '<table class="a">';
         table += '<td>true</td>';
     table += '</tr>';
 table += '</table>';
+document.write(table);
 // document.write(list); 아무데나 놔도 됨
 
 
-document.write(table);
 table2 += '<h2>|| or</h2>';
 table2 += '<table>';
     table2 += '<tr>';

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>변환 연습</title>
+    <script>
+        // let a = prompt(`0 or NaN or "" or null`);
+        // let table = '';
+        
+        // table += `<table><tr><td>0을 입력받으면 Boolean(${a})=</td><td>${Boolean(Number(a))}</td></tr></table>`;
+        // table += `<table><tr><td>NaN을 입력받으면 Boolean(${a})=</td><td>${Boolean(Number(a))}</td></tr></table>`;
+        // table += `<table><tr><td>""을 입력받으면 Boolean(${a})=</td><td>${Boolean(String(a))}</td></tr></table>`;
+        // table += `<table><tr><td>null을 입력받으면 Boolean(${a})=</td><td>${Boolean(a)}</td></tr></table>`;
+        
+        // document.write(table);
+        // ↑ 실패작 실패 ㅜㅜ 값을 입력받고 싶었는뎀
+        
+        // 문제1 반지름을 입력을 받아 원의 넓이와 원의 둘레를 계산하도록 하시오.
+        let rad =  prompt('반지름을 입력하세요');
+        let r = Number(rad);
+        const pi = 3.141592;
+
+        document.write(`<h1>입력 받은 반지름에 대한 원의 넓이와 둘레 계산</h1><h2><mark>원의 넓이 = ${pi*r*r}</mark></h2><h2><mark>원의 둘레 =${2*pi*r}</mark></h2>`);
+        
+        // 문제2 두개의 prompt를 받아 1) 달러 환율 2) 달러값을 입력하면 원화가 나오도록 
+        let p1 = prompt('달러 환율 입력?');
+        let d1 = prompt('변환 하고픈 달러값?');
+        let per = Number(p1);
+        let dol = Number(d1);
+        
+        document.write(`<h1>입력하신 환율에 의한 달러 변화값은</h1><h2><mark>원화로 ${per*dol}￦ 입니다.</mark><h2>`);
+
+        // 문제3 prompt로 1~9사이의 값을 입력 받아, 그 값의 구구단 표를 만들자.
+        let gg = Number(prompt('1~9 사이의 값을 입력하시오.'));
+
+        // if(gg===1 || gg===2 || gg===3 || gg===4 || gg===5 || gg===6 || gg===7 || gg===8 || gg===9){
+            // 이렇게 노가다 뛰어도 되고!
+        if(gg >= 1 && gg <= 9){
+            // 요롷게 스마트 하게!
+            alert('구구단 출력!');
+            gg = gg;
+        } else {
+             alert('예끼 이놈!');
+             gg='다시 적어 ㅡㅡ';
+        }
+        //넘버로 prompt를 감싸서 애초에 숫자값으로 입력
+        let tab = `<table><tr><th>${gg}X1</th><th>${gg}X2</th><th>${gg}X3</th><th>${gg}X4</th><th>${gg}X5</th><th>${gg}X6</th><th>${gg}X7</th><th>${gg}X8</th><th>${gg}X9</th>`;
+        
+        tab += `<tr><td>${gg*1}</td><td>${gg*2}</td><td>${gg*3}</td><td>${gg*4}</td><td>${gg*5}</td><td>${gg*6}</td><td>${gg*7}</td><td>${gg*8}</td><td>${gg*9}</td></tr></table>`;
+        
+        document.write(tab);
+        
+        document.write(`<ul><li>${gg}X1 = ${gg*1}</li><li>${gg}X2 = ${gg*2}</li><li>${gg}X3 = ${gg*3}</li><li>${gg}X4 = ${gg*4}</li><li>${gg}X5 = ${gg*5}</li><li>${gg}X6 = ${gg*6}</li><li>${gg}X7 = ${gg*7}</li><li>${gg}X8 = ${gg*8}</li><li>${gg}X9 = ${gg*9}</li></ul>`);
+        
+            
+    </script>
+    <style>
+        table *{
+            border: 1px solid black;
+            text-align: center;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        th {
+            background-color: chartreuse;
+        }
+
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
