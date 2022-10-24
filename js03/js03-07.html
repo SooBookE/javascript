@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>else if 예제</title>
+    <script>
+        const birthYr = Number(prompt('태어난 연도를 입력하세요.'))%12;
+        let animal = '';
+        if ( birthYr == 10) {
+            animal = '개';
+        } else if (birthYr == 11) {
+            animal = '돼지';
+        } 
+        else if (birthYr == 0) {
+            animal = '쥐';
+        }
+        else if (birthYr == 1) {
+            animal = '소';
+        }
+        else if (birthYr == 2) {
+            animal = '호랑이';
+        }
+        else if (birthYr == 3) {
+            animal = '토끼';
+        }
+        else if (birthYr == 4) {
+            animal = '용';
+        }
+        else if (birthYr == 5) {
+            animal = '뱀';
+        }
+        else if (birthYr == 6) {
+            animal = '말';
+        }
+        else if (birthYr == 7) {
+            animal = '양';
+        }
+        else if (birthYr == 8) {
+            animal = '원숭이';
+        }
+        else if (birthYr == 9) {
+            animal = '닭';
+        };
+        document.write(`당신은 ${animal}띠입니다.`);
+
+        // 요지는 더 쉽게 할 수 있지만, 이렇게 지저분하게 연습하다보면
+        // 코드 작성 길이가 점점 줄어든다.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

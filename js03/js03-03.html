@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>else if 연습2</title>
+    <style>
+        table * {
+            border: 1px solid black;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            height: 50px;
+        }
+        .temp1 {
+            background-color: rgb(78, 53, 78);
+            animation: t1 1s infinite;
+        }
+        .temp2 {
+            background-color: blue;
+            animation: t2 1s infinite;
+        }
+        .temp3 {
+            background-color: yellow;
+            animation: t3 1s infinite;
+        }
+        .temp4 {
+            background-color: orangered;
+            animation: t4 1s infinite;
+        }
+        .temp5 {
+            background-color: red;
+            animation: t5 1s infinite;
+        }
+        @keyframes t1 {
+            from{
+                background-color: 0;
+            }
+            to{
+                background-color: white;
+            };
+       
+        }
+        @keyframes t2 {
+            from{
+                background-color: 0;
+            }
+            to{
+                background-color: white;
+            };
+       
+        }
+        @keyframes t3 {
+            from{
+                background-color: 0;
+            }
+            to{
+                background-color: white;
+            };
+       
+        }
+        @keyframes t4 {
+            from{
+                background-color: 0;
+            }
+            to{
+                background-color: white;
+            };
+
+        }
+        @keyframes t5 {
+            from{
+                background-color: 0;
+            }
+            to{
+                background-color: white;
+            };
+
+        }
+
+        /* .d1 {
+            background-color: red;
+            animation: warn 1s infinite;
+        }
+        @keyframes warn {
+             from {
+                background-color: white;
+             }
+             to {
+                background-color: red;
+             }
+        } */
+    </style>
+    <script>
+        let temp = Number(prompt('현재 온도는?'));
+        let status = '';
+        
+        
+        if ( temp < 16 || temp >= 32 ) {
+            document.write(`<table><tr><th>16미만</th><th>16이상 22미만</th><th>22이상 28미만</th><th>28이상 32미만</th><th>32 이상</th><tr><td class="temp1"></td><td></td><td></td><td></td><td class="temp5"></td><tr><th>정상온도를 벗어났습니다.</th><th>시원하네요</th><th>보통이에요</th><th>갑갑하네요</th><th>정상온도를 벗어났습니다.</th></tr></table><br><br>`);
+            document.write('정상 온도를 벗어났습니다.');
+            status = '이상 상황입니다!!';
+        } else if ( temp < 22 && temp >= 16 ) {
+            document.write(`<table><tr><th>16미만</th><th>16이상 22미만</th><th>22이상 28미만</th><th>28이상 32미만</th><th>32 이상</th><tr><td></td><td class="temp2"></td><td></td><td></td><td></td><tr><th>정상온도를 벗어났습니다.</th><th>시원하네요</th><th>보통이에요</th><th>갑갑하네요</th><th>정상온도를 벗어났습니다.</th></tr></table><br><br>`);
+            document.write('시원하다!!!!');
+            status = '선선합니다.';
+        } else if ( temp < 28 && temp >= 22 ) {
+            document.write(`<table><tr><th>16미만</th><th>16이상 22미만</th><th>22이상 28미만</th><th>28이상 32미만</th><th>32 이상</th><tr><td></td><td></td><td class="temp3"></td><td></td><td></td><tr><th>정상온도를 벗어났습니다.</th><th>시원하네요</th><th>보통이에요</th><th>갑갑하네요</th><th>정상온도를 벗어났습니다.</th></tr></table><br><br>`);
+            document.write('보통이에요.');
+            status = '정상입니다.';
+        } else if ( temp < 32 && temp >= 28 ) {
+            document.write(`<table><tr><th>16미만</th><th>16이상 22미만</th><th>22이상 28미만</th><th>28이상 32미만</th><th>32 이상</th><tr><td></td><td></td><td></td><td class="temp4"></td><td></td><tr><th>정상온도를 벗어났습니다.</th><th>시원하네요</th><th>보통이에요</th><th>갑갑하네요</th><th>정상온도를 벗어났습니다.</th></tr></table><br><br>`);
+            document.write('갑갑하네요..');
+            status = '조금 불쾌합니다.';
+        }
+        document.write(`<br><br>지금 온도는 ${temp}℃이며, 상태는 ${status}`);
+
+
+
+        // 반짝 반짝 트라이!
+
+
+
+
+        // document.write(`<table><tr><th>16미만</th><th>16이상 22미만</th><th>22이상 28미만</th><th>28이상 32미만</th><th>32 이상</th><tr><td class="temp1"></td><td class="temp2"></td><td class="temp3"></td><td class="temp4"></td><td class="temp5"></td><tr><th>정상온도를 벗어났습니다.</th><th>시원하네요</th><th>보통이에요</th><th>갑갑하네요</th><th>정상온도를 벗어났습니다.</th></tr></table><br><br>`);
+
+        // if ( temp < 16 || temp >= 32 ) {
+        //     document.write('정상 온도를 벗어났습니다.');
+        //     status = '<div class="d1">이상 상황</div>입니다!!';
+        // } else if ( temp < 22 && temp >= 16 ) {
+        //     document.write('시원하다!!!!');
+        //     status = '선선합니다.';
+        // } else if ( temp < 28 && temp >= 22 ) {
+        //     document.write('보통이에요.');
+        //     status = '정상입니다.';
+        // } else if ( temp < 32 && temp >= 28 ) {
+        //     document.write('갑갑하네요..');
+        //     status = '조금 불쾌합니다.';
+        // }
+        // document.write(`<br><br>지금 온도는 ${temp}℃이며, 상태는 ${status}`)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
