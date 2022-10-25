@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>배열 요소추가</title>
+</head>
+<body>
+    <script>
+        const todo = [];
+        todo.push('우유 구매');
+        // const 이지만 push로 배열값을 건들 수는 있다.
+        todo.push('업무 메일 확인하기');
+        todo.push('필라테스 수업');
+        // console.log(todo.push('우유 구매'));
+        console.log(todo);
+        todo[5] = '갑툭튀';
+        // const 이지만 대입 연산자를 해주고
+        // 존재하지 않는 배열에 집어넣어도
+        // JS는 유연한 언어라 다 허용해준다.
+        // 다른 언어는 잘 안 해줌.
+        todo[todo.length] = '완료1';
+        todo[todo.length] = '완료2';
+        // length는 항상 배열의 마지막 할당된 수 보다 1 더 크므로, 맨 끝에 새로운
+        // 배열을 만들어 삽입한다는 의미.
+
+        todo[0] = '수정!';
+        // 덮어씌우기 가능!
+
+        console.log(todo);
+        console.log(todo.length);
+    </script>
+</body>
+</html>

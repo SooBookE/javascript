@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>양동원씨의 솔루션</title>
+    <script>
+        let buy = Number(prompt('구매하신 금액을 입력해주세요.'))
+        let pay = Number(prompt('지불하실 금액을 입력해주세요.'))
+        let num = pay - buy
+
+        let change50000 = (num-(num%50000))/50000
+        let change10000 = ((num%50000)-(num%10000))/10000
+        let change05000 = ((num%10000)-(num%5000))/5000
+        let change01000 = ((num%5000)-(num%1000))/1000
+        let change00500 = ((num%1000)-(num%500))/500
+        let change00100 = ((num%500)-(num%100))/100
+        let change00050 = ((num%100)-(num%50))/50
+        let change00010 = ((num%50)-(num%10))/10
+        let change00005 = ((num%10)-(num%5))/5
+        let change00001 = (num%5)
+
+        document.write(`구매하신 금액은 ${buy}원, 지불하신 금액은 ${pay}원입니다.<br>거슬러 드릴 돈은 ${num}원으로<br>`);
+        document.write(`오만원권으로 ${change50000}장, 만원권으로 ${change10000}장, 오천원권으로 ${change05000}장,
+          천원권으로 ${change01000}장, 오백원짜리로 ${change00500}개, 백원짜리로 ${change00100}개,
+           오십원짜리로 ${change00050}개, 십원짜리로 ${change00010}개, 오원짜리로 ${change00005}개, 일원짜리로 ${change00001}개 입니다.`);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

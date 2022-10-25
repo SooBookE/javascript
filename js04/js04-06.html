@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>for 반복문 연습</title>
+    <style>
+        table *{
+            border: 1px solid black;
+            align-items: center;
+            font-weight: 500;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            background-color: burlywood;
+        }
+        th {
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // for 안에 for문
+        // let box = '';
+        // for(let j=0;j<10;j++){
+        //     box+=`제${j+1} 사이클:`;
+        //     for(let i = 0 ; i < 10 ; i++ ){
+        //         box+=` ${i} `;
+        //     };
+        //     box+=`<br>`;
+        // };
+        // 반복을 반복하겠다.
+
+        // document.write(box);
+
+        // for 안에 for 넣기
+        // 예제
+        // 구구단 1단이 끝나면 옆으로 넘어가서 2단이 넘어가는 구구단 테이블 만들기
+        let table = `<table>`;
+            table += `<tr>`;
+            for(let k = 1 ; k <= 19 ; k++){
+                table+=`<th>${k}단</th>`;
+            }
+            table +=`</tr>`;
+            for( let i = 1 ; i <= 19 ; i++){
+                table+=`<tr>`;
+                for( let j = 1 ; j <= 19 ; j++ ){
+                    table+=`<td>${j} X ${i} = ${i*j}</td>`;
+                }
+                table+=`</tr>`;
+            }
+
+            table+=`</table>`;
+
+            document.write(table);
+            console.log(table);
+            // 브라켓에 복붙해서 뷰티 쓰면 오류난 부분 확인 가능
+
+    </script>
+</body>
+</html>

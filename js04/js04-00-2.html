@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>랜덤 예제 연습</title>
+    <script>
+        const ran = parseInt(Math.random()*100+1);
+        // parseInt는 몫을 구하는 함수가 아니라 정수로 만들어주는 함수이다.
+        if( ran <= 10 && ran > 3 ) {
+            document.write('레어 등급 획득!');
+        } else if ( ran <= 3 && ran > 0 ) {
+            document.write('에픽 등급 획득!!');
+        } else if ( ran == 0 ) {
+            document.write('레게노!!!!!!!!!!!!')
+        } else {
+            document.write('노말.. 네~');
+        }
+        console.log(ran);
+    </script>
+</head>
+<body>
+    <!-- 4종류의 등급별 아이템을 만드시오. 단, 1등급은 안 나오게 하시오.(주작) -->
+</body>
+</html>
