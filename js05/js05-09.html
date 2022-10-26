@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>최종연습</title>
+</head>
+<body>
+    <script>
+        // 1) 5번 만에 알맞는 수를 맞추어라.
+        // 조건1. 1~100 사이의 수 중 랜덤하게 숫자가 하나 골라진다.
+        // 조건2. 입력하기
+        // 조건3. 입력한 값이 랜덤하게 골라진 숫자보다(크다or작다)라고 답변 받음.
+        // 조건4. 5번 만에 성공 못하면 상황 종료
+        // 조건5. 맞추거나 못 맞출 때의 결과를 알려주기.
+
+        let ran = parseInt(Math.random()*100+1);
+        // 조건 1
+        let input = Number(prompt('1~100사이'));
+        // 조건 2
+        let i = 5;
+        while( i > 0 ){
+
+        if(input == ran){
+            document.write('정답!');
+        } else if ( input < ran ){
+            alert('그것보단 작습니다.');
+            i--;
+            input = Number(prompt(`기회는 ${i}번 남았습니다.`));
+        } else if ( input > ran ){
+            alert('그것보단 큽니다.');
+            i--;
+            input = Number(prompt(`기회는 ${i}번 남았습니다.`));
+        }
+        continue;
+        }  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // 2) @@ 심화 : 전공자들은 가위바위보 게임을 만들라
+        // 입력은 prompt로 입력
+        // 가위바위보 결과 내기.
+    </script>
+</body>
+</html>

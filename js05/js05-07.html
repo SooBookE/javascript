@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>중첩 반복문 예제1</title>
+</head>
+<body>
+    <script>
+        // 책 187p 피라미드를 콘솔로 뿌리기
+        let pyra = '';
+        let i = 0;
+        while(i <= 10){
+            for( let j = 0 ; j <= 10 ; j++ ){
+                if( j <= i ){
+                pyra+=`*`;
+                }else{
+                    continue;
+                }
+            }
+            pyra+=`<br>`;
+            i++;
+        }
+        document.write(pyra);
+    </script>
+</body>
+</html>

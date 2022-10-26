@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>while 반복문</title>
+</head>
+<body>
+    <script>
+        // let i = 0;
+        // while(true){
+            //     i += 1;
+            //     alert(`${i}번째 반복입니다.`);
+            // }
+            // ()가 true기만 하면 내용을 무한 반복.
+
+            // 구문은 위에서 아래로 진행하므로
+            // 구문의 작성 위치도 중요하다!!!
+
+            // let i = 0;
+            // while(confirm('계속 할까예?')){
+            //     i += 1;
+            //     alert(`${i}번째 반복입니다.`);
+            // }
+            // confirm으로 확인 취소를 구해 확인이면 계속 반복.
+
+
+
+            // const arr = ['서울','부산','대구','대전','광주','포항','경주'];
+            // let i = 0;
+            // while( i<arr.length ){
+            //     console.log(`%c${i}:${arr[i]}`,`color: red`);
+            //     i++
+            // }
+            // arr의 길이 미만이 될 때까지 i와 arr의 요소를 출력하는데
+            // 글자색을 red로 데코함.
+
+
+
+            // 예제 )
+            // 마지막 배열 뽑은 것을 while 쓰지 말고!
+            // for, for in, for of 들을 써서
+            // 글자색만 green으로 출력해보라!
+            const arr = ['서울','부산','대구','대전','광주','포항','경주'];
+            for( let i in arr ){
+                console.log(`%c${i} : ${arr[i]}`,`color: green`);
+            }
+    </script>
+</body>
+</html>
