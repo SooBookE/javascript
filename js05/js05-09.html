@@ -12,48 +12,33 @@
         // 조건4. 5번 만에 성공 못하면 상황 종료
         // 조건5. 맞추거나 못 맞출 때의 결과를 알려주기.
 
-        let ran = parseInt(Math.random()*100+1);
-        // 조건 1
-        let input = Number(prompt('1~100사이'));
-        // 조건 2
-        let i = 5;
-        while( i > 0 ){
+        // 강사님 솔루션..
 
-        if(input == ran){
-            document.write('정답!');
-        } else if ( input < ran ){
-            alert('그것보단 작습니다.');
-            i--;
-            input = Number(prompt(`기회는 ${i}번 남았습니다.`));
-        } else if ( input > ran ){
-            alert('그것보단 큽니다.');
-            i--;
-            input = Number(prompt(`기회는 ${i}번 남았습니다.`));
+        const ran = parseInt(Math.random()*100)+1;
+        let user = '';
+        let ct = 5;
+
+        while( ct>0 ){
+            ct--;
+            // 미리 카운트 하나를 깜
+            user = Number(prompt('1~100 사이의 수'));
+
+            if( ran==user ){
+                alert(`정답! 값은: ${ran}`);
+                break;
+            } else if( ran>user ){
+                alert(`그것보단 큽니다. 남은 기회: ${ct}`);
+            } else if( ran<user ){
+                alert(`그것보단 작습니다. 남은 기회: ${ct}`);
+            }
         }
-        continue;
-        }  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // 2) @@ 심화 : 전공자들은 가위바위보 게임을 만들라
-        // 입력은 prompt로 입력
-        // 가위바위보 결과 내기.
+        /* 결과 출력 */
+        if( ran==user ){
+            document.write(`<h1>성공! ㅊㅋㅊㅋ</h1>`);
+        } else {
+            document.write(`<h1>땡! 정답은 <mark>${ran}</mark>! ㄲㅂ~</h1>`)
+        }
+        
     </script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>피라미드 풀이</title>
+</head>
+<body>
+    <script>
+        let star = '';
+        for(let i=0 ; i<10 ; i++ ){
+            for( let j=10 ; j>i ; j-- ){
+                star+=` `;
+            }
+            // 공백의 갯수를 늘여서 별의 위치를 조정.
+            for( j=0 ; j<2*i+1 ; j++ ){
+                star+=`*`;
+            }
+            // 2n+1 스타일로 별의 갯수를 반복입력하게 작성함.
+            star+=`\n`;
+        }
+        console.log(star);
+    </script>
+</body>
+</html>

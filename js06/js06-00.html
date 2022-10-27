@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>배열 초기화</title>
+</head>
+<body>
+    <script>
+        let arr = [];
+        arr[0] = 'ㅎㅇ';
+        arr[5] = 1234;
+        console.log(arr);
+        arr=[];
+        console.log(arr);
+        // arr가 let일 때 []를 입력해주면 초기화 됨.
+        /* const는 안댐!!!!!!!!!!!!!!! */
+        const array = [];
+        array[0] = 'ㅎㅇ';
+        array[5] = 1234;
+        console.log(array);
+        array.length = 0;
+        console.log(array);
+        /* const이면 length를 0으로 만들어서 강제로 지울 수 있음*/
+
+    </script>
+</body>
+</html>
