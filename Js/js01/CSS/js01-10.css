@@ -1,0 +1,8 @@
+table *{
+    border: 1px solid black;
+    /* 이렇게 만들면 각각 보더를 만들어서 보기 싫은데 */
+}   
+.a{ 
+    border-collapse: collapse;
+}
+/* 이렇게 클래스를 선언해서 보더 콜랩스를 쓰면 선이 붙는다. */

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>최종연습</title>
+</head>
+<body>
+    <script>
+        // 1) 5번 만에 알맞는 수를 맞추어라.
+        // 조건1. 1~100 사이의 수 중 랜덤하게 숫자가 하나 골라진다.
+        // 조건2. 입력하기
+        // 조건3. 입력한 값이 랜덤하게 골라진 숫자보다(크다or작다)라고 답변 받음.
+        // 조건4. 5번 만에 성공 못하면 상황 종료
+        // 조건5. 맞추거나 못 맞출 때의 결과를 알려주기.
+
+        // 강사님 솔루션..
+
+        const ran = parseInt(Math.random()*100)+1;
+        let user = '';
+        let ct = 5;
+
+        while( ct>0 ){
+            ct--;
+            // 미리 카운트 하나를 깜
+            user = Number(prompt('1~100 사이의 수'));
+
+            if( ran==user ){
+                alert(`정답! 값은: ${ran}`);
+                break;
+            } else if( ran>user ){
+                alert(`그것보단 큽니다. 남은 기회: ${ct}`);
+            } else if( ran<user ){
+                alert(`그것보단 작습니다. 남은 기회: ${ct}`);
+            }
+        }
+        /* 결과 출력 */
+        if( ran==user ){
+            document.write(`<h1>성공! ㅊㅋㅊㅋ</h1>`);
+        } else {
+            document.write(`<h1>땡! 정답은 <mark>${ran}</mark>! ㄲㅂ~</h1>`)
+        }
+        
+    </script>
+</body>
+</html>

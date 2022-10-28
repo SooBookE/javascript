@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>로또 번호 반복 돌려서 많이 나온 값 추출기</title>
+</head>
+<body>
+    <script>
+        let lotto = [];
+        let ran = 0;
+        let result=[];
+
+        for( let l=0 ; l<45 ; l++){
+            result[l]=0;
+        // result 공간 44번까지 총 45개를 0으로
+        // 초기화 해서 만듦.
+        }
+
+        for( let i=1 ; i<=100000 ; i++ ){
+            // 배열 만들기를 i번 돌림
+            for( let j=0 ; j<6 ; j++ ){
+                ran=parseInt(Math.random()*45)+1;
+
+                if( lotto.indexOf(ran)==-1){
+                    lotto.push(ran);
+                }else{
+                    j--;
+                }
+            }
+            // 랜덤 로또 배열 하나를 완성해서 출력.
+
+            for( let k=1 ; k<=45 ; k++ ){
+                if( lotto.indexOf(k)==-1 ){
+                    continue;
+                }else{
+                    result[k-1]++;
+                    }
+                }
+                // 로또를 검사해서 해당 숫자가 있으면
+                // (해당숫자-1)에 해당하는 인덱스에 1씩 증가
+            
+            lotto=[];
+            // lotto 배열 초기화
+        }
+
+        console.log(result);
+
+
+        // 호에에에에에에에에에에에에에에에에에에에에엥
+    </script>
+</body>
+</html>

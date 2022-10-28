@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>랜덤게임 풀이</title>
+</head>
+<body>
+    <script>
+        const ran = parseInt(Math.random()*100)+1;
+        
+        
+        for( let ct=5  ; ct>0 ; ct-- ){
+            let user = Number(prompt('숫자를 입력하세요. 남은 기회 : '+ct));
+        if( ran==user ){
+            alert('정답! 축하합니다!!'+ran);
+            break;
+        }else if( ran>user ){
+            alert('그것보단 더 커요.'+ran);
+        }else{
+            alert('그것보단 더 작아요.'+ran);
+        }
+        }
+
+    </script>
+</body>
+</html>

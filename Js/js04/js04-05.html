@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>for 반복문</title>
+    <style>
+        table *{
+            border: 1px solid black;
+            background-color: aqua;
+        }
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        for (let i = 0; i<3 ; i++ ){
+        document.write(`${i}번째 입니다.<br>`);
+        };
+        // for 의 기본구조.
+        // 첫 칸은 시작. 
+        // 둘째 칸은 참/거짓을 결정하는 끝을 지정하는 구문.
+        // 셋째 칸은 증가량 설정.
+
+
+
+        // 예제. 1부터 35까지 증가하는 숫자를 화면에다 표시하시오.
+
+        for ( let num = 1 ; num <= 35 ; num++ ){
+            document.write(`<br><br> ${num}입니다.`);
+        };
+
+        // 예제2. 77에서 38까지 감소하는 숫자를 화면에다 차례로 작성하시오.
+
+        for ( let re = 77 ; re >= 38 ; re-- ){
+            console.log(`${re}임돠`);
+        };
+
+        // 예제3. 1에서 40까지의 숫자를 표 안에 넣고 표를 완성하시오.
+        let table = '<table><tr>';
+        for ( let td=40 ; td >= 1 ; td-- )
+        // 중간에 td == 40 이면 구동을 안 하는데,
+        // 이유는 td가 40이 아닌 순간부터 바로 동작을 정지하기 때문에
+        // 결과가 출력되지 않는다.
+        {
+            table += `<th>${td}</th>`;
+        }
+        table += `</tr></table>`
+
+        document.write(table);
+        // 얘는 거꾸로 출력하도록 조정해봄.
+        
+        
+        
+        
+        // 자바스크립트는 스타일이나 여러 적용이 다~~~ 끝나고 마지막에 적용하도록
+        // 마지막에 위치 시키는게 관례이다.
+    </script>
+</body>
+</html>

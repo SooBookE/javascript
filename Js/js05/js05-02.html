@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>for문 연습2</title>
+</head>
+<body>
+    <script>
+        // 입력하신 1부터 2까지 짝수만 합하면 2
+        // 입력하신 1부터 4까지 짝수만 합하면 6
+        // 그래서 결론은?
+        let start = Number(prompt('어디서부터 계산할까요?'));
+        let end = Number(prompt('어디까지 계산할까요?'));
+        let sum = 0;
+
+        document.write(`입력하신 ${start}부터 ${end}까지의 짝수를 명시하면<br>`);
+
+        for( let i = start ; i <= end ; i++ ){
+            if( i%2 == 0 && i < end ){
+                document.write(`${i}, `);
+                sum += i;
+            } else if ( i%2 == 0 && i == end ){
+                document.write(`${i}`);
+                sum += i;
+            }
+        }
+        document.write(`이며 <br><br> 합은 ${sum}입니다.<br><br><br>`);
+
+        let sum2 = 0;
+
+        document.write(`입력하신 ${start}부터 ${end}까지의 홀수를 명시하면<br>`);
+
+        for( let j = start ; j <= end ; j++ ){
+            if( j%2 != 0 && j < end ){
+                document.write(`${j}, `);
+                sum2 += j;
+            } else if ( j%2 != 0 && j == end ){
+                document.write(`${j}`);
+                sum2 += j;
+            }
+        }
+        document.write(`이며 <br><br> 합은 ${sum2}입니다.<br><br><br><br><br>총합은 ${sum+sum2}입니다.`);
+    </script>
+</body>
+</html>

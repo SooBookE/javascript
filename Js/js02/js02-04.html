@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>문제4</title>
+    <script>
+        //prompt 세 번을 띄워
+        //각각 국어점수, 수학점수, 과학점수를 입력 받는다.
+        //알림창으로 3과목의 평균을 띄운다.
+        //웹페이지에는 국어가 70이상이며 수학이 50 이상이며 과학이 80 이상일 때만 true 값을 띄운다.
+
+        let kor = Number(prompt('국어점수를 입력하세요.'));
+        let math = Number(prompt('수학점수를 입력하세요.'));
+        let sci = Number(prompt('과학점수를 입력하세요.'));
+
+        alert(`입력하신 점수는\n국어 점수 = ${kor}점\n수학 점수 = ${math}점\n과학 점수 = ${sci}점\n이며, 평균 점수는 ${(kor+math+sci)/3}점입니다.`);
+        // alert(`입력하신 점수는
+        // 국어 점수 = ${kor}
+        // 수학 점수 = ${math}
+        // 과학 점수 = ${sci}
+        // 이며, 평균 점수는 ${(kor+math+sci)/3}점입니다.`);
+        // 백틱 기능 안에 엔터인식도 포함되어 있으므로 이렇게 해도 되긴 함.
+
+        let fini = '';
+        if(kor>=70 && math>=50 && sci>=80) {
+            fini='합격입니다.';
+        } else {
+            fini='불합격입니다.';
+        };
+        document.write(`<h2>국어가 <big><mark>70점</mark></big> 이상, 수학이 <big><mark>50점</mark></big> 이상, 과학이 <big><mark>80점</mark></big> 이상입니까? <br><br>결과=<mark>${fini}</mark>`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
