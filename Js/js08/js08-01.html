@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>구글 차트 사용해보기(이중 배열을 ARaBoZa</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="chart_div"></div>
+
+
+
+
+
+    <script>
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawBasic);
+
+    // const data_box = [
+    //         ['로또', '2022 로또분석표',],
+    //         ['New York City, NY', 8175000],
+    //         ['Los Angeles, CA', 3792000],
+    //         ['Chicago, IL', 2695000],
+    //         ['Houston, TX', 2099000],
+    //         ['Philadelphia, PA', 1526000]
+    //     ];
+
+        // 2. 여기 빼놓음
+        // 얘들이 2중 배열이다.
+        // 배열 안에 배열
+        // 2차원 배열!!!!!!!!!!!!!!!!!
+
+
+
+        // 다른 언어는 const arr = [][];
+        // 이래도 되는데 JS는 안댐. 이래야 댐.
+        // const arr=[['',''],['',0],['',0]];
+        // 요런 느낌으로 만들어야 함
+
+        // arr.push(['로또', '로또분석']);
+        // for( let i=0 ; i<45 ; i++ ){
+            // arr.push(['',0]);
+        // }
+        // 따라서 요런식으로 하면 반복 작업으로
+        // 만들 수 있다.
+
+        const data_box = [];
+        data_box.push(['로또', '로또분석']);
+        for(let i=0 ; i<45 ; i++ ){
+            data_box.push([(i+1)+'번',i]);
+        }
+
+
+
+
+
+
+
+    function drawBasic() {
+
+        var data = google.visualization.arrayToDataTable(data_box);
+        // 1. 여기 있던 놈들을
+
+        var options = {
+            title: '로또 번호 확률 분석',
+            chartArea: {width: '50%', height: '100%'},
+            hAxis: {
+            title: '번호 출현 갯수',
+            minValue: 0
+            },
+            vAxis: {
+            title: '로또 번호 통계'
+            }
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+    }
+    </script>
+</body>
+</html>
