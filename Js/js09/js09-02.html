@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>주사위 누적 차트 만들기</title>
+</head>
+<body>
+    <script>
+        let result=[];
+        let dice=0;
+        for( let i=0 ; i<6 ;i++){
+            result[i];
+        }
+        // 결과 배열에 6자리 공간 만들기
+
+        for( let i=0 ; i<10 ; i++ ){
+            // 주사위를 n번 돌렸을 때
+            dice=Math.floor(Math.random*6)+1;
+            // 랜덤한 주사위 숫자가 나옴
+            for( let j=1 ; j<=6 ; j++ ){
+            if(dice==j){
+                result[j-1]++;
+            }else{
+                continue;
+            }
+            }
+            dice=0;
+        }
+        document.write(result);
+
+        // 미완성.....
+    </script>
+</body>
+</html>

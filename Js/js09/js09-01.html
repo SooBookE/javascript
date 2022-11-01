@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <title>예쁜 차트로 로또 누적 결과 출력</title>
+    <style>
+        table *{
+            border: 1px solid black;
+            text-align: center;
+        }
+        table{
+            border-collapse: collapse;
+            width: 400px;;
+        }
+        tr:nth-child(2n+1){
+            background-color: burlywood;
+        }
+        /* 테이블과 리스트 순서가 다르면
+        테이블을 플렉스 다이렉션 컬럼 리버스로
+        조져도 되긴 함 */
+    </style>
+</head>
+<body>
+    
+    <script>
+        let lotto = [];
+        let ran = 0;
+        let result=[];
+        let list ='';
+
+        for( let l=0 ; l<45 ; l++){
+            result[l]=0;
+        // result 공간 44번까지 총 45개를 0으로
+        // 초기화 해서 만듦.
+        }
+
+        for( let i=1 ; i<=10000 ; i++ ){
+            // 배열 만들기를 i번 돌림
+            for( let j=0 ; j<6 ; j++ ){
+                ran=parseInt(Math.random()*45)+1;
+
+                if( lotto.indexOf(ran)==-1){
+                    lotto.push(ran);
+                }else{
+                    j--;
+                }
+            }
+            list+=`${i}번째 로또 : `+lotto+'<br>';
+            // 랜덤 로또 배열 하나를 완성해서 출력.
+
+            for( let k=1 ; k<=45 ; k++ ){
+                if( lotto.indexOf(k)==-1 ){
+                    continue;
+                }else{
+                    result[k-1]++;
+                    }
+                }
+                // 로또를 검사해서 해당 숫자가 있으면
+                // (해당숫자-1)에 해당하는 인덱스에 1씩 증가
+            
+            lotto=[];
+            // lotto 배열 초기화
+        }
+
+
+        let table = `<table>`;
+        let k=1;
+        let r=0;
+
+        for( let i=0 ; i<5*2 ; i++ ){
+            table+=`<tr>`;
+            if(i%2==0){    
+                for( let j=0 ; j<10 ; j++ ){
+                    table+=`<td>${k}</td>`;
+                    k++;
+                }
+            }else{
+                for( let j=0 ; j<10 ; j++ ){
+                    if(r<45){
+                        table+=`<td>${`${result[r]}`}</td>`;
+                        r++;
+                    }else{
+                        table+=`<td>X</td>`;
+                    }
+                }
+                table+=`</tr>`;
+            }
+        }
+        table+=`</table>`;
+
+        /*       차트 만드는 기계              */
+
+        let numlist = [];
+        let backcol = [];
+
+        // for( let i=0 ; i<45 ; i++ ){
+        //     numlist[i]=0;
+        //     backcol[i]=0;
+        // }
+
+
+
+
+
+/*       동기 비동기라는 개념이 있는데 고건 나중에 자세히 알랴주실 것    */
+
+
+
+        document.write(table);
+        document.write(`<canvas id="bar-chart-horizontal" width="800" height="450"></canvas>`);
+
+
+/*     구글차트는 맨 밑에 놔둬도 되는데 여기에 놔둔 이유는...?        */
+// 대부분의 사이트에서 가져올 때 비동기화이므로 디자인이 적용되기 전에 적용될
+// 공간을 미리 작성해야 한다.
+
+// 구글 차트는 동기화로 사이트에서 만들어 놓아서, 맨 밑에 뿌려줘도
+// 대상체가 작성된 다음에 디자인이 적용되도록 기다려준다.
+
+
+
+
+
+
+
+
+        
+        for( let i=0 ; i<45 ; i++ ){
+            numlist.push(`${i+1} 번`);
+            backcol.push("#8e5ea2");
+        }
+        new Chart(document.getElementById("bar-chart-horizontal"), {
+            type: 'horizontalBar',
+            data: {
+            labels: numlist,
+            datasets: [
+                {
+                label: "Population (millions)",
+                backgroundColor: backcol,
+                data: result
+                }
+            ]
+            },
+            options: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: '로또 번호 중복 누적값 차트 '
+            }
+            }
+        });
+        /*    여기까지가 차트 만드는 기계       */
+        document.write(list);
+        </script>
+</body>
+</html>

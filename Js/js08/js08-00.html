@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>for문 연습</title>
+    <title>로또 누적 데이터 구글 차트로 출력!</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <style>
         table *{
             border: 1px solid black;
@@ -72,18 +73,19 @@
                     table+=`<td>${k}</td>`;
                     k++;
                 }
-                }else{
-                    for( let j=0 ; j<10 ; j++ ){
-                        if(r<45){
+            }else{
+                for( let j=0 ; j<10 ; j++ ){
+                    if(r<45){
                         table+=`<td>${`${result[r]}`}</td>`;
                         r++;
-                        }else{
-                            table+=`<td>X</td>`;
-                        }
+                    }else{
+                        table+=`<td>X</td>`;
                     }
-                    table+=`</tr>`;
                 }
+                table+=`</tr>`;
+            }
         }
+        table+=`</table>`;
         // for( let i=0 ; i<3 ; i++ ){
         //     console.log(`${i}`);
         //     for( let j=0 ; j<4 ; j++ ){
@@ -102,7 +104,7 @@
         //     }
         // }
 
-            // 바깥과 안의 변수를 똑같이 선언해줘도
+        // 바깥과 안의 변수를 똑같이 선언해줘도
             // 되지만, i*i를 하면 바깥 변수는 사용하지
             // 않고 안의 i의 범위만 사용해 계산한다.
 
@@ -112,8 +114,47 @@
             // 반복문 외부에서는 내부 반복문에 선언된 변수
             // 사용 불가
 
-        table+=`</table>`;
+
+
+/*       차트 만드는 기계              */
+            const charEle = [];
+            charEle.push(['로또', '로또분석']);
+
+            for( let i=0 ; i<45 ; i++ ){
+                charEle.push([`${i+1} 번`, result[i]]);
+            }
+
+
+            google.charts.load('current', {packages: ['corechart', 'bar']});
+            google.charts.setOnLoadCallback(drawBasic);
+
+            function drawBasic() {
+
+                var data = google.visualization.arrayToDataTable(charEle);
+
+                var options = {
+                    title: '로또 번호 확률 분석',
+                    chartArea: {width: '50%'},
+                    hAxis: {
+                    title: '번호 중복 횟수',
+                    minValue: 0
+                    },
+                    vAxis: {
+                    title: '1~45까지의 번호'
+                    }
+                };
+
+                var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+
+                chart.draw(data, options);
+            }       
+        // table+=`<div id="chart_div"></div>`;
+        // 테이블에 넣어도 되고
+
+        /*    여기까지가 차트 만드는 기계       */
         document.write(table);
+        // 바로 이렇게 도큐먼트 라이트에 뿌려도 ㄱㄴ
+        document.write(`<div id="chart_div"></div>`);
         document.write(list);
     </script>
 </body>

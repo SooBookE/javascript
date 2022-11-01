@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>구글 차트보다 이쁜 것!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+<body>
+    <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
+    <script>
+        
+        
+        let lotto_data =[2478,5267,734,784,433];
+        let lotto_color =["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"];
+        let lotto_num = ["Africa", "Asia", "Europe", "Latin America", "North America"];
+        new Chart(document.getElementById("bar-chart-horizontal"), {
+            // getElementById 는 id를 기반으로 불러오겠다
+            // 나중에 쓰일 것
+
+
+            // 키값쌍  키와 값이 쌍으로 이루어짐
+            // { 키: 값, 키: 값, 키: 값 }     이런 식으로
+        type: 'horizontalBar',
+        data: {
+        labels: lotto_num,
+        datasets: [
+            {
+            label: "Population (millions)",
+            backgroundColor: lotto_color,
+            data: lotto_data
+            }
+        ]
+        },
+        options: {
+        legend: { display: false },
+        title: {
+            display: true,
+            text: '로또 통계'
+        }
+        }
+         });
+    </script>
+</body>
+</html>
