@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>리턴과 콘솔.로그 무엇?</title>
+</head>
+<body>
+    <script>
+        function errandGood(cookie, ea){
+            // 좋은 심부름꾼
+            let sum = cookie*ea;
+            return sum;
+        }
+        function errandBad(cookie, ea){
+            // 나쁜 심부름꾼
+            let sum = cookie*ea;
+            console.log(sum);
+        }
+
+        // 콘솔로그에 입력한 결과
+        // errandGood(1000,5)
+        // 5000
+
+        // errandBad(1000,7)
+        // 7000
+        // undefined
+
+        // var hand = errandGood(1100,5)
+        // undefined
+        // hand에 리턴한 내용을 담아보자.
+
+        // var hand2 = errandBad(1100,5)
+        // 5500
+        // hand2에 콘솔로그 값을 담아보자.
+
+
+        // hand 라고 치면
+        // 5500을 실제로 출력
+
+        // hand2 라고 치면
+        // 아무 값도 출력하지 않는다.
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>또또 펑션 활용</title>
+</head>
+<body>
+    <button onclick="lot(45,6)">자 드가자~</button>
+    <!-- 누르면 함수 실행하는 버튼 만듦 -->
+    <script>
+
+
+        function lot(num, set){
+        // num까지의 숫자 안에서
+        // set만큼 뽑기
+        
+        
+        
+        let lotto=[];
+        let ran=0;
+        
+        for( let i=0 ; i<set ; i++ ){
+            ran = parseInt(Math.random()*num)+1;
+            // 1~45 랜덤 숫자 하나 뽑기
+            if(lotto.indexOf(ran)==-1){
+                lotto.push(ran);
+            }else{
+                i--;
+            }
+            // 중복 안 되도록 6자리 lotto에 입력
+        }
+        // 로또 하나 뽑아내는 기계 완성
+
+
+        document.write(lotto);
+        }
+        // 펑션에 또또를 담았다.
+
+
+    </script>
+</body>
+</html>

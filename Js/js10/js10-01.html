@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>함수와 리턴</title>
+</head>
+<body>
+    <script>
+    /* 함수 */
+    // 그냥 패키지화+재사용이라고 생각하면 댐.
+        // function add(){
+        //     // 함수는 이렇게 이름 지정 가능
+        //     for( let i=0 ; i<50 ; i++ ){
+        //     console.log('덧셈할겁니다.'+i+'회');
+        //     }
+        // }
+        // JS는 변수에 function을 담을 수 있는게 특징
+        // add()
+        // 함수 호출
+        
+
+
+
+        function add(num){
+// (입력)
+        console.log(num);
+        return num+1;
+// return - 출력  펑션과 한 몸이다.
+
+// return 만나면 함수가 역할을 끝내므로
+// 맨 마지막에 하나만! 작성해야 한다.
+
+
+
+            // console.log(num);
+            // 있다고 출력만 하는 것
+        }
+        add(1234);
+
+
+
+
+
+        function add(num1, num2){
+            // num1과 num2를 매개 변수라고 하고
+            // parameter
+
+            // num1과 num2에 넣는 요소를 인자
+            // argument 라고 한다.
+            return num1 + num2;
+        }
+        function mul(num1, num2){
+            return num1 * num2;
+        }
+
+        // 각각을 콘솔에서 add(인자1, 인자2),
+        // mul(인자1, 인자2) 를 입력하면
+        // 내부의 공식에 의해 값이 도출된다.
+
+
+
+
+        function sub(num1, num2){
+            return num1-num2;
+        }
+        // 빼기
+        function div(num1, num2){
+            return num1/num2;
+        }
+        // 나누기
+        function remains(num1, num2){
+            return num1%num2;
+        }
+        // 나머지
+
+
+
+
+
+    </script>
+</body>
+</html>

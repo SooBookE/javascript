@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>익명함수(무명함수)</title>
+</head>
+<body>
+    <script>
+        let vadd = function (a,b){
+        // 요래 변수에 담을 수도 있고,
+        // 함수의 이름을 생략했음.
+            return a+b;
+        }
+        console.log(vadd(5,10));
+        console.log(typeof(vadd(5,10)));
+        // 값은 넘버가 나옴
+        console.log(typeof(vadd));
+        // 값은 펑션이 나옴
+
+
+
+
+
+        let vadd2 = (function(a,b){
+            return a+b+b;
+        })(5,10);
+        // 선언함과 동시에 값을 넣어버린다.
+
+
+
+
+        // console.log(vadd2(5,10));
+        console.log(vadd2);
+        console.log(typeof(vadd2));
+
+    </script>
+</body>
+</html>

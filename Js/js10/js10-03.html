@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>함수 스코프</title>
+</head>
+<body>
+    <script>
+        function myScope(){
+            var a = '나는 var입니다.';
+            console.log(a);
+            {
+                var b = '나는 내부 var입니다.';
+                let c = '나는 내부 let입니다.';
+            }
+            // 블럭 스코프를 잡아서 내부에 
+            // 선언해보았음.
+
+            // console 창에서 myScope()입력해봄
+
+            // 결과는 내외부 var는 출력
+            // 내부 let은 못 빠져나옴
+
+
+            // 범위를 지정해서 그 안에서만 사용가능
+            // 하게 하는 내용이 let이다
+            // var는 아무데서나 사용가능하니까
+            // 안정성 떨어지고 충돌이 일어나더라.
+            console.log(b);
+            console.log(c);
+        }
+    </script>
+</body>
+</html>
