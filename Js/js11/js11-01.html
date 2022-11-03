@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>책 예제: a부터 b까지 더하는 함수</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt(`a부터?`));
+        let b = Number(prompt(`b까지 더하기!`));
+        let output = 0;
+
+        let add = function(a,b){
+            for( let i=a ; i<=b ; i++ ){
+                output+=i;
+            }
+            return output;
+        }
+        
+        alert(add(a,b));
+
+        // 오호라
+    </script>
+</body>
+</html>

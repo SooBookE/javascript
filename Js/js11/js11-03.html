@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>최솟값/최댓값 솔루션</title>
+</head>
+<body>
+    <script>
+        function rand(num){
+            const arr=[];
+            let ran=0;
+            for(let i=0 ; i<num ; i++ ){
+                ran=Math.floor(Math.random()*100)+1;
+                arr[i]=ran;
+            }
+            return arr;
+        }
+        
+        let choice=rand(7);
+        
+        
+        function min(arr_in){
+            let resultMin = arr_in[0];
+            for( let j=0 ; j<arr_in.length ; j++ ){
+                if(resultMin > arr_in[j]){
+                    resultMin = arr_in[j];
+                }
+            }
+            return resultMin;
+        }
+        document.write(choice);
+        console.log(min(choice));
+        
+        
+        // 호출 할 때마다 랜덤을 새로 돌리니까
+        // 한 번 돌린 값을 어딘가에 저장해야
+        // 원하는 출력값을 낼 수 있다.
+        
+        
+        
+        
+        function max(arr_in){
+            let resultMax = arr_in[0];
+            for( let j=0 ; j<arr_in.length ; j++ ){
+                if(resultMax < arr_in[j]){
+                    resultMax = arr_in[j];
+                }
+            }
+            return resultMax;
+        }
+ 
+        console.log(max(choice));
+
+        // for in과 
+        // for of의 사용.....
+        // 아라보기
+    </script>
+</body>
+</html>

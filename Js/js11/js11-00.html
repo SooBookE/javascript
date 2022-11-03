@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>전역변수(global), 지역변수(local)</title>
+</head>
+<body>
+    <h1>변수의 유효범위(variable scope)</h1>
+    <script>
+        //  [ var 일 때의 상황들
+
+        /*  전역변수 지역변수 구분  */
+        // var num = 100;
+        // function globalN(){
+        //     // 예약어가 충돌될 수 있으니
+        //     // global 말고 뒤에 N을 붙여줌
+        //     var num = 200;
+        //     document.write(`함수 내부에서 변수 값은 ${num}입니다<br>`);
+
+        // }
+        // globalN();
+        // document.write(`호출 끝난 뒤 변수 값은 ${num}입니다.`)
+        
+        
+        
+        
+        
+        /*    전역변수 변경   */
+        // var num = 100;
+        // function globalN(){
+        //     document.write(`함수 내부에서 변수 값은 ${num}입니다<br>`);
+        //     num = 200;
+        // }
+        // globalN();
+        // document.write(`호출 끝난 뒤 변수 값은 ${num}입니다.`)
+        // 얘는
+        // 1. 밖에서 선언된 넘을 함수에서 그대로 출력
+        // 2. 그 후 함수 안에서 넘에 200을 대입
+        // 3. 바깥의 넘의 값이 변경됨.
+
+
+
+
+        /*  전역변수?    */
+       
+        // function globalN(){
+        //     num = 200;
+        //     document.write(`함수 내부에서 변수 값은 ${num}입니다<br>`);
+        // }
+        // globalN();
+        // document.write(`호출 끝난 뒤 변수 값은 ${num}입니다.`)
+
+        // 권장하는 방법은 아닌데
+        // 펑션 안에서 넘을 정하자
+        // 함수 밖에까지 함수가 선언되어버림
+
+        //   ]
+
+
+
+
+
+        // [ let 일 때의 상황들
+
+         /*  전역변수 지역변수 구분  */
+        // let num = 100;
+        // function globalN(){
+        //     // 예약어가 충돌될 수 있으니
+        //     // global 말고 뒤에 N을 붙여줌
+        //     let num = 200;
+        //     document.write(`함수 내부에서 변수 값은 ${num}입니다<br>`);
+
+        // }
+        // globalN();
+        // document.write(`호출 끝난 뒤 변수 값은 ${num}입니다.`)
+        
+        
+        
+        
+        
+        /*    전역변수 변경   */
+        let num = 100;
+        function globalN(){
+            document.write(`함수 내부에서 변수 값은 ${num}입니다<br>`);
+            num = 200;
+        }
+        globalN();
+        document.write(`호출 끝난 뒤 변수 값은 ${num}입니다.`)
+        // 얘는
+        // 1. 밖에서 선언된 넘을 함수에서 그대로 출력
+        // 2. 그 후 함수 안에서 넘에 200을 대입
+        // 3. 바깥의 넘의 값이 변경됨.
+
+
+        //   ]
+    </script>
+</body>
+</html>

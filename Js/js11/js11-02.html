@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>책 예제2: 최솟값 구하기</title>
+</head>
+<body>
+    <script>
+        // 임의의 수로 된 배열
+        // 100이하의 값으로 7자리 생성
+        // arr=[]
+        // arr 랜덤 값도 출력
+
+        // min(arr) 함수를 생성해
+        // arr 내의 숫자 중 최솟값을 출력하라.
+        // max(arr) 함수를 생성해
+        // arr 내의 숫자 중 최댓값을 출력하라.
+        let arr=[];
+        let ran=0;
+
+        for( let i=0 ; i<7 ; i++ ){
+            ran=Math.floor(Math.random()*100)+1;
+            arr.push(ran);
+        }
+        
+        document.write(arr);
+        
+        function min(x){
+            let minimum=arr[0];
+
+            for( let i=1 ; i<7 ; i++ ){
+                if(minimum<=x[i]){
+                    minimum=minimum;
+                }else{
+                    minimum=x[i];
+                }
+            }
+            return minimum;
+        }
+        document.write('<br>최솟값은 : '+min(arr));
+
+
+
+        function max(x){
+            let maximum=arr[0];
+
+            for( let i=1; i<7 ; i++ ){
+                if(maximum>=x[i]){
+                    maximum=maximum;
+                }else{
+                    maximum=x[i];
+                }
+            }
+            return maximum;
+        }
+        document.write(`<br>최댓값은 : `+max(arr));
+
+
+
+
+        // 고난이도 문제!
+        // 저번에 사용한 수의 오름차순 나열 함수를
+        // 논리적으로 작성해보자!!!
+
+
+        function asc(x){
+           let arr2 = [];
+
+           for( let i=0 ; i<7 ; i++ ){
+            for( let j=0 ; j<7 ; j++ ){
+                if( x[i]<=x[j] ){
+                    arr2[i]=x[i];
+                }else{
+                    x[i]=arr2[j];
+
+                }
+            }
+           }
+        
+        }
+        
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
