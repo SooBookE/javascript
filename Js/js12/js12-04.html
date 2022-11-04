@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>자료형에 따른 함수동작(209p 강사님 방법)</title>
+</head>
+<body>
+    <script>
+        function min(...rests){
+            let output;
+            let items;
+
+            console.log(`====추적용 콘솔 5줄====`+rests);//[]
+            console.log(typeof(rests));//object
+            console.log(typeof(rests[0]));//number
+            console.log(Array.isArray(rests));//true
+            console.log(Array.isArray(rests[0]));//false
+
+            if(Array.isArray(rests[0])){
+                output = rests[0][0];// 배열 rests[0]의 [0]자리 요소
+                items = rests[0];// 하나의 배열이 됨
+                console.log('배열입니다.')
+            }else if( typeof(rests[0]) === 'number' ){
+                output = rests[0];
+                items = rests;
+                console.log('숫자입니다.')
+            }
+            for(const item of items){
+                if(output>item){
+                    output = item
+                }
+            }
+            return output;
+        }
+
+        // console.log(`배열 결과: ${min([55, 66, 222, 33, 11, 32, 68])}`);
+        console.log(`숫자 결과: ${min(55, 66, 222, 33, 11, 32, 68)}`);
+    </script>
+</body>
+</html>

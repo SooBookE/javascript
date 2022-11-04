@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>나머지 매개변수</title>
+</head>
+<body>
+    <script>
+        function sample(name, age, ...items){
+            console.log(name,age,items)
+        }
+
+        sample(1);//1 undefined []
+        sample(1,2);//1 2 []
+        sample(`안녕`);//안녕 undefined []
+        sample([1,2,3]);//(3) [1, 2, 3] undefined []
+        sample([[1,2,3],[4,5]]);//(2) [Array(3), Array(2)] undefined []
+        sample([1,2,3],[4,5]);//(3) [1, 2, 3] (2) [4, 5] []
+        sample(11,22,33);//11 22 [33]
+        sample(4,5,6);//4 5 [6]
+        // 원래라면 items 자리가 하나라
+        // 나머지가 안 떠야하지만
+        // ...을 앞에 붙여주면 갯수에 상관없이
+        // 받는데 배열로 받는다.
+    </script>
+</body>
+</html>

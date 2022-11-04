@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>나머지 매개변수2</title>
+</head>
+<body>
+    <script>
+        // 최솟값 만드는 함수 만들기
+
+        function min(...items){
+            // 배열을 그냥 맨 밑에 넣으면 ㄴ상관 이지만
+            // 인자를 여러 개 넣으면 동작을 안 하므로
+            // 나머지 매개변수 ...을 이용해라
+            let output = items[0];
+            for( let min of items){
+                if(output > min){
+                    output = min;
+                }
+            }
+            return output;
+        }
+        console.log(min(2, 12, 33, 14, 35));
+
+
+
+
+
+        // // 최솟값 만드는 함수 만들기
+        // let arr=[2, 12, 33, 14, 35];
+
+        // function min(items){
+        //     let output = items[0];
+        //     for( let min of items){
+        //         if(output > min){
+        //             output = min;
+        //         }
+        //     }
+        //     return output;
+        // }
+        // console.log(min(arr));
+    </script>
+</body>
+</html>

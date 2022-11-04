@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>나머지 매개변수 강의 버전 0!</title>
+</head>
+<body>
+    <script>
+        function what(...items){
+            return items;
+        }
+        v1 = what(11,22,33);
+        v2 = what([44,55,66]);
+
+        console.log(v1);
+        console.log(v1[0]);
+        console.log(v1[0][0]);
+        console.log(v2);
+        console.log(v2[0]);
+        console.log(v2[0][0]);
+
+
+        console.log(...v1);
+        console.log(...v2);
+
+
+
+        // 몇 개의 매개변수가 들어올 지 모르니 사용하고,
+        // 나머지 매개변수는 배열로 받아 온다.
+    </script>
+</body>
+</html>
