@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>기본 매개변수</title>
+</head>
+<body>
+    <script>
+        // 보통 2번째 매개변수부터 기본값을 입력함
+        // 매개변수를 입력하기 전의 디폴트값을 만듦
+        function earnings(name, wage=9160, hours=40){
+            document.write(`# ${name} 님의 급여 정보<br>`);
+            document.write(`- 시급 : ${wage}원<br>`);
+            document.write(`- 근무 시간 : ${hours}시간<br>`);
+            document.write(`- 주 급여 : ${wage*hours}원<br>`);
+            document.write(`- 월 급여 : ${wage*hours*4}원<br>`);
+            document.write('==========================');
+            // console.log(`# ${name} 님의 급여 정보`);
+            // console.log(`- 시급 : ${wage}원`);
+            // console.log(`- 근무 시간 : ${hours}시간`);
+            // console.log(`- 주 급여 : ${wage*hours}원`);
+            // console.log(`- 월 급여 : ${wage*hours*4}원`);
+            // console.log('==========================');
+        }
+        // console.log나 document.write에 놔두면
+        // 변수에 담아줘도 변수를 호출할 때 출력하는 값이
+        // 없다.
+        // 리턴으로 보낸 다음에 담아줘야 값이 출력됨.
+    </script>
+</body>
+</html>

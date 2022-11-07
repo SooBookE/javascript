@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>(구버전)기본 매개변수 없던 시절</title>
+</head>
+<body>
+    <script>
+        function earnings(wage, hours){
+            wage = typeof(wage) != undefined ? wage : 9160;
+            hours = typeof(hours) != undefined ? hours : 40;
+            return wage*hours;
+        }
+
+        // wage = wage || 8500;
+        // 이렇게 사용할 수도 있음.
+        // 단, wage가 false 또는 0, 빈값이 아닐 때만 가능...
+
+
+        // wage 값이 있으면 8500까지 가지도 않고
+        // wage에 들어온 wage 값을 대입.
+
+    </script>
+</body>
+</html>

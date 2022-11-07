@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>함수 고오급</title>
+</head>
+<body>
+    <script>
+        // JS는 함수도 하나의 자료라는 개념을 넣어
+        // 지정된 위치 외에 작성 가능
+        // 비동기 프로그램 = 효율적으로 되는 대로 동작
+        // 동기 프로그램 = 무족권 순차적으로 동작
+
+        // 다른 프로그래밍 언어에서 찾아보기 힘든 개념
+        // 콜백!
+        
+        function lol(hero, level=1, callback=fire){
+            // 매개변수에 사이즈 큰 펑션을 넣는다
+            // > 콜백. 여러 함수에 따라 딜레이 시간을 만들 수 있다.
+            // 매개변수에 함수 넣을 때는 () 안 적어도 된다.
+            // 콜백이라고 안써도 된다. 매개변수다.
+            if( level >= 6 ){
+                document.write(`${hero}님께서 궁극기를 시전하였습니다!!<br>`);
+                callback(level);
+            } else {
+                document.write(`${hero}님께서 평타를 때립니다. 아야!<br>`);
+            }
+            
+        }
+
+
+        function fire(ff){
+            for( let i=1 ; i<=ff ; i++ ){
+                document.write(`${i}번째 파이어를 ${i}개 던집니다.<br>`);
+            }
+        }
+        function ice(ii){
+            for( let i=1 ; i<=ii ; i++ ){
+                document.write(`${i}번째 얼음송곳을 ${i*ii}개 던집니다.<br>`);
+            }
+        }
+        function slow(ss){
+            for( let i=ss ; i>0 ; i-- ){
+                document.write(`${ss-i+1}번째 때려서 ${i*5}% 느려집니다.<br>`);
+            }
+        }
+    </script>
+</body>
+</html>
