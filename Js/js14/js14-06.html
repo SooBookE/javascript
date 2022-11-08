@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>강사님 문제</title>
+</head>
+<body>
+    <script>
+        // 문제 1)
+        // 20부터 90까지 짝수로 구성된 배열을 만들고
+        // 거기서 35보다 큰 수 중에 10의 배수만 뽑아서
+        // 요소 하나씩 출력하라.
+        let arr = [];
+        for( let i=20; i<=90 ; i++ ){
+            arr.push(i);
+        }
+        // console.log(arr);
+        arr.filter(value=>value%2===0).filter(value=>value>35&&value%10===0).map(value=>value*value).forEach(value=>console.log(value));
+
+
+
+        // 문제 2)
+        // words=['kiwi','orange','banana','exuberant','destruction','present']
+        // 에서 글자의 크기값(length)을 가진 새로운 배열을 만드시오.
+        // 그 중 6글자가 넘어가는 단어만 고르고
+        // 그 단어와 글자 갯수를 하나씩 출력하시오.
+        
+        let words=['kiwi','orange','banana','exuberant','destruction','present'];
+        words.filter(value=>value.length>=6).forEach(value=>console.log(`단어: ${value} 글자 수: ${value.length}`));
+        
+    </script>
+</body>
+</html>

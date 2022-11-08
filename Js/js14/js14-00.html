@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>저번 시간 콜백 함수 손풀기</title>
+</head>
+<body>
+    <script>
+        // 책 221_222p 예제 해보기
+        // 1번
+        function callThreeTimes (callback){
+            for( let i=0 ; i<3 ; i++ ){
+                callback(i);
+            }
+        }
+
+        function print(i){
+            console.log(`${i}번째 함수 호출`);
+        }
+
+        callThreeTimes(print);
+
+        // 2번
+        function callthreetimes(callback){
+            for( let i=0 ; i<3 ; i++ ){
+                callback(i);
+            }
+        }
+
+        callthreetimes(function (i){
+            console.log(`${i}번째 함수 호출`);
+        });
+    </script>
+</body>
+</html>

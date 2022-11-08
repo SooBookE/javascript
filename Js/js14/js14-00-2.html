@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>같은 출력, 간소화 시키기</title>
+</head>
+<body>
+    <script>
+        const arr = [343,77,11];
+        // arr.forEach(function(value, index, array){
+        //     console.log(value, index, array); 
+        // });
+        /* 1번 방식 */
+        
+
+        // arr.forEach((value, index, array)=>{
+        //     console.log(value, index, array); 
+        // });
+        // 화살표 함수 사용
+        /* 2번 방식 */
+
+
+        arr.forEach(console.log);
+        /* 3번 방식 */
+
+        // 모두 결과는 같고 좀 더 간소화 시킨 것.
+
+
+        const test = arr.map(function(value,index,array){
+            console.log(value,index,array);
+        });
+        console.log(test);
+        // map() 1번
+
+
+        const test_1 = arr.map(console.log);
+        // map() 2번
+
+
+        // 매개변수의 이름은 바꿔도 상관 없으나,
+        // 순서에는 각각 value, 등이 들어가므로
+        // 순서를 잘 지키자!
+    </script>
+</body>
+</html>

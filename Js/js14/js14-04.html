@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>화살표 함수</title>
+</head>
+<body>
+    <script>
+        const arr = [1,2,33,4,56,6,5,76,7];
+        const amap=arr.map(value=>value*value);
+
+        // arr.map(value=>value*value);
+        // 제약이 몇 개 있지만, 아래와 같은 기능을
+        // 간소화 시켜서 작성하는 문법
+        // -> 화살표 함수
+
+        // arr.map(function(value,index,array){
+        //     return value*value;
+        // })
+
+        const afil=arr.filter(value=>value%2===0);
+        // 필터의 특징.
+        // 리턴되는 값이 참이 될 때만 사용.
+
+        console.log(afil);
+
+    </script>
+</body>
+</html>
