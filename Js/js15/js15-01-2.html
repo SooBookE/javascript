@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>강사님 풀이</title>
+</head>
+<body>
+    <script>
+        arr = [];
+        arr1 = [];
+        ct=0;
+
+        /* for 사용 */
+        // for( let i=0 ; i<=100 ; i++ ){
+        //     if(32>=i){arr.push(ct+=2)}
+        //     if(i>32&&i<70){arr.push(++ct)}
+        //     if(i>=70&&i<=100){arr.push(ct-=2)}
+        // }
+
+
+
+        /* Array().fill() 사용 */
+        Array(101).fill(0).map((_,i)=>{
+            if(32>=i){arr.push(ct+=2)}
+            if(i>32&&i<70){arr.push(++ct)}
+            if(i>=70&&i<=100){arr.push(ct-=2)}
+        })
+        // index만 쓰겠다.
+
+
+
+        /* map() 방식 */
+        // arr.map((v,i)=>{if(v%2==0){arr1[i]='짝수'}else{arr1[i]='홀수'}});
+        
+        // arr1=arr.map(value=>value%2===0?'짝수':'홀수');
+        // 3항 연산자로 줄여줌
+        
+        
+        
+        
+        /* filter() 방식 */
+        // arr1=arr.map(value=>value%2===0?'짝수':'홀수');
+        // 참 일때만 대입해주니까, 위의 식이 작동 안됨.
+        // 짝수만, 홀수만 뽑을 때 사용가능
+        
+
+        // 필터는 골라낼 때 사용
+        
+        
+        
+        arr1=arr.map(v=>{if(v%2==0){v='짝수'}else{v='홀수'}})
+
+        // arr1=arr.map(function(v){
+        //     if(v%2==0){
+        //         return v='짝수'
+        //     }else{
+        //         return v='홀수'
+        //     }
+        // })
+        
+        console.log(arr1);
+        // 화살표 함수에서 if 문 등을 작성하려면
+        // {} 안에 작성해야 함.
+        
+        
+
+
+
+        /* map의 삼항연산자 사용 */
+        // arr1 = arr.map(v=>v%2==0?v='짝수':v='홀수');
+
+        // arr.forEach((v,i)=>console.log(`${i}번째 수는 ${v}이고 ${arr1[i]}이다.`));
+        
+    </script>
+</body>
+</html>

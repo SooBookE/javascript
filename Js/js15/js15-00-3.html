@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>리듀서 응용</title>
+</head>
+<body>
+    <script>
+        /* mapping 기능 */
+
+        const arr = Array(100).fill().map((v,i)=>v=i+1)
+        // console.log(arr);
+        // 100까지 들어가는 배열
+
+        const arr_oe=arr.reduce((a,c)=>{
+            a.push(c%2?'짝수':'홀수');
+            return a;
+        },[])
+        // 초깃값 빈 배열 넣어줘야 함
+        console.log(arr_oe);
+
+        /* filter 기능 */
+        const arr_fil = arr.reduce((a,c)=>{
+            if(c>50)a.push(c);return a;
+        },[])
+
+        console.log(arr_fil);
+
+
+
+        // reduce로 여러가지 기능을 대체해서 수행할 수 있으면서
+        // 속도도 괜찮더라
+    </script>
+</body>
+</html>

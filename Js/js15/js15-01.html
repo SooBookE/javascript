@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>저번 시간 응용 연습</title>
+</head>
+<body>
+    <script>
+        // 0부터 32이하 2씩 증가
+        // 32초과 70미만 1씩 증가하고
+        // 70이상 100이하 2씩 감소하는 배열을 하나 만들고,
+
+        // ['홀수','짝수'.'홀수'...]으로 홀짝으로 분류하여 배열을
+        // 하나 더 완성하라.
+        let array = [];
+        for( let i=0 ; i<=32 ; i++ ){
+            array.push(2*i+2);
+        }
+        let start=array[32];
+        for( let i=33 ; i<70 ; i++ ){
+            start++;
+            array.push(start);
+        }
+        start=array[69]
+        for( let i=70 ; i<=100 ; i++ ){
+            start-=2;
+            array.push(start);
+        }
+        // 위 조건에 맞는 배열 완성.
+
+        let result=[...array];
+        // 깊은 복사로 새로운 배열 만들기.
+
+        for(let i=0 ; i<101 ; i++ ){
+            if( result[i]%2===0 ){
+                console.log(i+'번째 수는 '+result[i]+'이며 짝수');
+            } else {
+                console.log(i+'번째 수는 '+result[i]+'이며 홀수');
+            }
+        }
+        // 홀짝 구분하며 콘솔에 출력.
+
+        
+
+        // let eo = array.map(value=>)
+    </script>
+</body>
+</html>

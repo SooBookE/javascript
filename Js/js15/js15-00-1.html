@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>화살표 함수</title>
+</head>
+<body>
+    <script>
+        arr=[1,2,3,4,5];
+        arr.forEach(v=>console.log(v));
+        // 매개변수 하나면 () 생략 가능
+        arr.forEach((v,i)=>console.log(v));
+        // 둘 이상이면 ()로 표시 해줘야 함.
+        arr.forEach(()=>console.log('반복중'));
+        // 배열의 length 만큼 반복함.
+        arr.forEach(_=>console.log('또 반복중'));
+        // 배열의 length 만큼 반복함.
+        arr.forEach((_,i)=>console.log(i));
+        // 매개변수 자리에 _ 사용하면 무시하겠다
+        // 는 의미
+    </script>
+</body>
+</html>

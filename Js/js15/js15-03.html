@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>리듀서 감각 익히기</title>
+</head>
+<body>
+    <script>
+        // 0부터 32이하 2씩 증가
+        // 32초과 70미만 1씩 증가하고
+        // 70이상 100이하 2씩 감소하는 배열을 하나 만들고,
+
+        // ['홀수','짝수'.'홀수'...]으로 홀짝으로 분류하여 배열을
+        // 하나 더 완성하라.
+
+
+        // map, filter, forEach 사용하지 말고
+        // reduce로 완성하라
+        let ct=0;
+        const arr=Array(100).fill().reduce((a,c)=>{
+            if(c<=32){ct+=2; a.push(ct) ; return a;};
+            if(c>32&&c<70){ct++;a.push(ct); return a;};
+            if(c>=70&&c<=100){ct-=2;a.push(ct); return a;};
+        },[])
+        console.log(arr);
+
+
+
+
+        // ....?
+    </script>
+</body>
+</html>

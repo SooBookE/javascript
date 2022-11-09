@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>응용 연습 문제2</title>
+</head>
+<body>
+    <script>
+    // Array를 이용하여 1부터 100까지 수를 포함한
+    // 배열을 하나 만드시오.
+
+    let arr=Array(100).fill().map((value,index)=>value=index+1).filter(v=>v%3==0);
+    // 어차피 매핑 해줄 거니까 .fill()으로 비워둠
+
+    console.log(arr);
+    </script>
+</body>
+</html>

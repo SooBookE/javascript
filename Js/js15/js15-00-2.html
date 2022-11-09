@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>끝판왕 reduce 맛보기</title>
+</head>
+<body>
+    <script>
+        // arr.reduce((acc,cur,idx,def)=>console.log(acc,cur,idx,oar),def);
+        // 4개의 인자를 받는다.
+        // 각각 누산기, 현재 값, 현재 인덱스, 원본 배열
+        // reduce의 공식 용도는 다 누적 합산이지만,
+        // 잘 쓰면 forEach, filter, map, 객체 생성, 등의
+        // 모든 일을 처리할 수 있음.
+        
+        
+        
+        // const arr = [1,2,3,4,5]
+        
+        // let sum=arr.reduce((a,c)=>a+c)
+        // console.log(sum);
+        // 1부터 5까지 누적 합산 식.
+        
+        
+        // const arr = Array(100).fill().map((v,i)=>v=i+1)
+        // console.log(arr)
+        // let sum = arr.reduce((a,c)=>a+c)
+        // console.log(sum);
+        
+        // 1부터 100까지 누적 합산
+        
+        
+        
+        
+        // 기본 형태 reduce(fn,초기값)
+        // 그냥 틀면 인덱스 1부터 시작하므로,
+        
+        // arr.reduce((acc,cur,idx,def)=>console.log(acc,cur,idx),0);
+        // 0을 넣어줘야 함
+        
+        // reduce의 마지막 값은 더하지 않은 상태로 되어 있다.
+        // 마지막 값을 더해야 하므로
+        // acc+cur를 해줘야 함.
+        
+        
+        const arr = Array(100).fill().map((v,i)=>v=i+1)
+        let sum = arr.reduce((acc,cur,idx,ary)=>{ // acc: 누적값, cur: 현재값, idx: 인덱스, ary: 어레이
+            console.log(acc,cur,idx,ary); // 각각의 값을 확인
+            return acc+cur; // 최종합을 위해 마지막으로 acc와 cur을 더해서 리턴
+        })
+        console.log(sum);
+        
+        
+    </script>
+</body>
+</html>
