@@ -17,11 +17,18 @@
         // reduce로 완성하라
         let ct=0;
         const arr=Array(100).fill().reduce((a,c)=>{
-            if(c<=32){ct+=2; a.push(ct) ; return a;};
-            if(c>32&&c<70){ct++;a.push(ct); return a;};
-            if(c>=70&&c<=100){ct-=2;a.push(ct); return a;};
+            if(c>=0&&c<=32){ct+=2; a.push(ct)}
+            else if(c>32&&c<70){ct++;a.push(ct)}
+            else if(c>=70&&c<=100){ct-=2;a.push(ct)} return a;;
         },[])
         console.log(arr);
+
+
+
+
+        // 메소드 체이닝을 사용하면 붙는 메소드 수 만큼 반복을 돌려야 하는데,
+        // 리듀서로 작성하면 한 번 반복에 같은 기능들을 전부 수행해서
+        // 동작 속도를 조금이라도 빠르게 해준다.
 
 
 

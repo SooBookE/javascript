@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>문제에에</title>
+    <script src="./js16js/js16-04.js"></script>
+</head>
+<body>
+    <!-- html에 나를 눌러봐 버튼을 누르면
+    콘솔 로그에 5,4,3,2,1 펑!이 출력되도록 하라
+    단 펑!은 alert을 통해서 팝업 하도록 하기. 
+    html에 나를 멈춰봐 버튼을 누르면 언제든지 타이머가 멈추게 하라.-->
+    <button type="button" onclick="setTimeout(()=>{setInterval(()=>{console.log(`${ct}`); --ct},1000)},5000)">나를 눌러봐</button>
+    <button type="button">나를 멈춰봐</button>
+    <!-- js에 함수 만들고 여기에 그 함수 호출, 함수에다 타임 함수 적기 -->
+</body>
+</html>
