@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>타이머 문제</title>
+    <script>
+        'use strict';
+        // 엄격하게 문장 검사해서 실행할 때 사용
+        // 스코프 안에서 쓰면, 그 스코프 영역 내에서만 작용함.
+
+        let ct_s=0;
+        let ct_m=0;
+        let id=0;
+        
+        /* clearInterval로 해보기 */
+
+        // 조은지씨 방법.
+        // 대신 전역변수 말고 함수 안에서 변수를 선언해야 초기화 할 때 변수에
+        // 0을 대입하면서 초기화 됨.
+        // 전역변수를 사용하면 누적된 값이 기억되므로 동작하지 않는다.
+        // let fn=()=>{
+        //     let ct_s=0;
+        //     let ct_m=0;
+        //     clearInterval(id);
+        //     id=setInterval(()=>{
+        //         console.log(`${ct_m}분 ${ct_s}초`);
+        //         ct_s++;
+        //         if(ct_s==60){
+        //             ct_s=0;
+        //             ct_m++;
+        //         };
+        //     },1000);
+        // }
+
+
+
+
+        /* if로 해보기 */
+
+        let fn=()=>{if(ct_m==0&&ct_s==0){
+            id=setInterval(()=>{
+                console.log(`${ct_m}분 ${ct_s}초`);
+                ct_s++;
+                if(ct_s==60){
+                    ct_s=0;
+                    ct_m++;
+                }
+            },1000)}else{ct_m=0,ct_s=0}
+        }
+        
+
+
+        /* 3항 연산자로 해보기 */
+
+        // let fn=()=>{ct_m==0&&ct_s==0?
+        //     id=setInterval(()=>{
+        //         console.log(`${ct_m}분 ${ct_s}초`);
+        //         ct_s++;
+        //         if(ct_s==60){
+        //             ct_s=0;
+        //             ct_m++;
+        //         }
+        //     },1000):ct_m=0,ct_s=0
+        // }
+
+
+        let fnx=()=>{
+            clearInterval(id);
+            ct_s=0;
+            ct_m=0;
+        }
+    </script>
+</head>
+<body>
+    <!-- 스타트/스탑 버튼을 만들고
+    스타트 누르면 0분0초에서 1초씩 증가
+    60초는 1분으로 표현
+    스탑누르면 타이머 종료
+    스타트 다시 누르면 다시 시작
+    작동 중에 스타트 누르면 초기화 되어 새로 시작-->
+<button type="button" onclick="fn()">스타트</button>
+<button type="button" onclick="fnx()">스탑</button>
+</body>
+</html>

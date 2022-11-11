@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>스탑워치</title>
+    <script>
+        let ct_s=0;
+        let ct_m=0;
+        let id=0;
+
+        let fn=()=>{
+            id=setInterval(()=>{
+                console.log(`${ct_m}분 ${ct_s}초`);
+                ct_s++;
+        }, 1000);}
+        let fn1=()=>{()=>{
+            clearInterval(id);
+        }}
+        let fn2=()=>{()=>{clearInterval(id); ct_s=0}}
+    </script>
+</head>
+<body>
+    <button type="button" onclick="fn()">시작</button>
+    <button type="button" onclick="">일시정지</button>
+    <button type="button" onclick="">리셋</button>
+</body>
+</html>
