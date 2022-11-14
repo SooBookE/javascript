@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>타이머 문제에 대한 다른 강사님의 강의</title>
+    <script>
+        // setTimeout(()=>{
+        //     console.log('1초 뒤에 실행');
+        //     location.href = 'https://www.google.com/search?q=';
+        //     // 넘어가게 만듦.
+        // },1*1000)
+        // 자바도 그렇고 if나 for나 함수나 명령이 하나면 {}생략 가능.
+
+
+
+
+
+        // var count = 5;
+        var state = false;
+        // true false로써 동작하도록 만들어 보자.
+        // false일 때 카운트다운이 동작하도록 하고, true면 작동 정지.
+
+        // var countDown;
+        function fn(){
+            let count = 5;
+            // let은 자신이 속한 스코프{} 안에서 사용할 때 유용하다.
+            countDown=setInterval(function(){
+                if(!state){
+                    if(count>0)
+                    console.log(count--);
+                    else{
+                    console.log('펑!');
+                    clearInterval(countDown);
+                    // id를 불러와서 사용하는 함수이다.
+                    }
+                    /* fnx로 멈춰도, setInterval은 
+                    출력만 안 하고 있을 뿐, 계속 동작하고 있다. */
+                }
+            },1000);
+            // setInterval은 매개변수가 2개인 함수이다.
+            // 콜백함수는 매개변수로 함수를 썼다는 뜻. 그 이상도 이하도 아니다.
+        }
+
+        fnx = function(){
+            state=!state;
+            // 상태 반전을 원할 때 사용.
+        }
+
+        // 함수는 명령/행동의 집합이다.
+    </script>
+</head>
+<body>
+    <button onclick="fn()">나를 눌러봐</button>
+    <button onclick="fnx()">나를 멈춰봐</button>
+</body>
+</html>
