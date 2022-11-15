@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>즉시 실행 함수로 객체 실행해보기</title>
+    <script>
+        const COUNTER = (function(){
+            var curr = 0;
+            // 함수 내부에 있으면 var, let, const, 등이
+            // 선언 시 보호가 된다.
+
+            return {
+                getCurrentValue: function(){
+                    return curr;
+                },
+                increaseValue: function(){
+                    curr++;
+                    return curr;
+                },
+                decreaseValue: function(){
+                    curr--;
+                    return curr;
+                }
+            }
+        })();
+        console.log(COUNTER.curr);
+        console.log(COUNTER.getCurrentValue());
+        console.log(COUNTER.increaseValue());
+        console.log(COUNTER.decreaseValue());
+        // getCurrentValue 등등이 다 객체.
+        // curr 변수 자체는 불러올 수 없지만,
+        // 객체들은 Closure 현상을 통해 curr의 값을 가져 올 수 있다.
+
+        // {}로 객체를 표현
+        // {} 안에 속성(키)과 내용(값)을 넣을 수 있다.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

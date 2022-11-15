@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <!-- en에서 ko로 변경...? -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>즉시 호출 함수</title>
+    <script>
+        // 즉시 실행함수는 선언과 동시에 호출 되면서 실행해 재사용이 불가.
+        (function(){
+            console.log('즉시 실행 함수1');
+        })();
+        (()=>{
+            console.log('즉시 실행 함수2');
+        })();
+        // 위의 둘이 같은 것.
+        // 즉시 실행 함수의 장점은
+        // 1. 필요없는 전역변수의 생성을 줄일 수 있다.
+        // 2. private(자신만 사용하는)한 변수를 만들 수 있다.
+
+        let isAdult;
+
+        (age=>{
+            // age를 매개변수 하나로 사용
+            let currentAge =age;
+            if( age >= 20 )
+            isAdult = true;
+            else
+            isAdult = false;
+            // isAdult= age>=20?true:false;
+            // 삼항 연산자로 이렇게 줄일 수 있다.
+        })();
+        console.log(isAdult);
+        console.log(currentAge);// 즉시실행함수를 사용하면
+        // 변수의 전역사용의 남발을 막을 수 있다.
+        // 전역변수가 너무 많으면 프로그램이 무거워지므로 좋지 않다.
+        // 즉시 실행 함수의 장점 1번에 해당.
+    </script>
+</head>
+<body>
+    <h1>즉시 실행 함수</h1>
+    <!-- 즉시 실행하는 함수이다.
+    (단, 한번의 사용이 필요한 함수) -->
+</body>
+</html>
