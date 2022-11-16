@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 감 잡기</title>
+    <script>
+        function car(c_name,c_age){
+            this.name=c_name;
+            this.age=c_age;
+        }
+        cars=[new car('porsche',2022), new car('maserati',2020), new car('bugatti',2023)];
+        console.log(cars[0].name);
+        console.log(cars[0].age);
+        console.log(cars[1].name);
+        console.log(cars[1].age);
+        console.log(cars[2]);
+
+        /* 내가 만들어 봄 */
+
+
+
+
+        /* 강사님 예시 */
+        // 일일이 작성하기. 바로 할당.
+        const ca= {
+            name: 'bugatti',
+            color: 'pink',
+            wheel: 4,
+            // 속성
+            drive: function(){
+                console.log(this.name+'brrrrrrr~~~~~~~~~~~~~~~~');
+            },
+            stop: ()=>{
+                console.log('끼이이이이이이이익!')
+            }
+            // 메소드
+        }
+
+        console.log(ca.name);
+        ca.drive();
+        ca.stop();
+
+
+        // 펑션으로 만들기, 즉각적으로 만들기.
+
+        function carz(name,color,wheel){
+            this.name = name;
+            this.color = color;
+            this.wheel = wheel;
+            this.drive = function(){
+                console.log('skrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr~');
+            };
+            this.stop = function(){
+                console.log('Swish!');
+            };
+        }
+        sportsCar = new carz('porsche','red',4);
+        console.log(sportsCar.name);
+        sportsCar.drive();
+        sportsCar.stop();
+
+        console.log('\n'+typeof(sportsCar));
+
+
+
+
+        // 객체는 '속성'과 '기능'을 가진 단위이다.
+        // document.write 할 때 document도
+        // 언어 내부에서 미리 만든 객체이다.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

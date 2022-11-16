@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체?</title>
+    <script>
+        window.onload = function(){
+
+            var header = document.querySelector('h1');
+            console.log(typeof(header));
+            // 객체로 뜨네?
+            console.log(header.textContent);
+            console.log(header.innerHTML);
+            /* 객체의 속성 */
+
+            header.style.background='crimson';
+            header.style.cursor = 'pointer';
+            header.onclick = function(){
+                alert(this.textContent);
+                // this는 주체인 hearder를 지칭.
+            }
+            // header.onclick();
+            // 객체의 기능(함수)
+            // 객체의 함수=메소드
+            // alert(header.onclick);
+
+            // 태그가 객체이기에 이렇게 속성을 적용할 수 있다.
+
+
+            // 모든 것은 객체로 시작해서 객체로 끝난다...?
+
+            // 태그들도 다 속성을 가진 "객체"이다!!!!!!
+        }
+        // 마지막에 실행시키기 위해 사용한 구문.
+    </script>
+</head>
+<body>
+    <h1>Hello</h1>
+</body>
+</html>

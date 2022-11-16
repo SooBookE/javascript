@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연습문제 숙제</title>
+    <script>
+        /* 1번 */
+        let numbers=[273,25,75,52,103,32,57,24,76];
+        numbers=numbers.filter(v=>{return(v%2!=0 && v<=100 && v%5==0)});
+        // 왜 v%2!=0 && v<=100 && v%5==0에 중괄호 씌우면 안되지..?
+        // () 소괄호 쓰면 되네..? 조건이라서? 소괄호or안 씌우기
+
+        /*  재환 형님's Kick!  */
+        // 필터나 맵이나 forEach 등은 return 값이 필요한 함수인데
+        // 중괄호를 씌우는 순간 return을 적어줘야 해당 값이 return 되기 때문에
+        // return을 적어줘야 한다.
+        console.log(numbers);
+        
+
+
+        /* 2번 */
+        const array=['사과', '배', '귤', '바나나'];
+
+        array.forEach((_,idx)=>console.log(idx));
+        // for in 대체
+        array.forEach(v=>console.log(v));
+        // for of 대체
+    </script>
+</head>
+<body>
+    <!-- 책 240~241p -->
+</body>
+</html>

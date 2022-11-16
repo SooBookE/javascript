@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메소드 간단 선언 구문</title>
+    <script>
+        const pet = {
+            name: '구름',
+            legs:4,
+            eat (food){
+                document.write(this.name+'은/는 '+food+'을/를 먹습니다.');
+            }
+            // 그냥 이렇게 간단하게 선언해서 써도 된다는 뜻.
+            // 이렇게 적어도 구동될 만큼 JS가 유연한 언어다.
+        }
+
+        pet.eat('밥');
+        function replacer(key, value){
+            if(typeof(value)==='number'){
+                return 'ㅎㅇ';
+            }
+            return value;
+        }
+        console.log(JSON.stringify(pet,replacer,3));
+        // null이면 대체 문자로 아무것도 안 넣는데,
+        // 대체 문자를 넣어주면 그 내용을 넣어준다.
+        console.log(JSON.stringify(pet));
+
+        // JSON은 경량형으로 온라인에서 많이 쓰이는 경량화 포멧이다.
+        // JavaScript Object Notation의 약자이다.
+
+
+
+
+        /*    자바에서는 익명 함수나 화살표 함수나 this가 가르키는 내용이 같지만
+        JS에서는 다른 내용을 가르킨다.     */
+        const test = {
+            a: function() {
+                console.log(this);
+                // test 객체를 지칭하고
+            },
+            b: ()=>{
+                console.log(this);
+                // window 객체를 지칭한다.
+            }
+        }
+        test.a();
+        test.b();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
