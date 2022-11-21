@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>stringify(얕복, 깊복)</title>
+</head>
+<body>
+    <script>
+        const 구름 = {
+            이름: '구름',
+            나이: 6,
+            종족: '강아지'
+        }
+        /* 얕은 복사 */
+
+        // const 별=구름;
+        // 별.이름='별'
+        // 별.나이=1
+        // 별={이름:'별', 나이:1, 종족:'강아지'}
+        // 구름={이름:'별', 나이:1, 종족:'강아지'}
+
+        // 이렇게 원본에 훼손이 일어난다!
+
+
+
+
+        /* 깊은 복사( 전개연산자 ) */
+
+        const 별= {...구름};
+        별.이름='별';
+        별.나이=1;
+        별.종족='고양이';
+        // 이게 되네...?
+        // 전개 연산자를 사용하니,
+        // 별과 구름이 별개의 존재가 되었다.
+        // 전개 연산자를 사용해야 메소드까지 같이 복사가 가능하다.
+
+
+        /* 다른 깊복( JSON 와리가리 ) */
+
+        // console.log(JSON.stringify(별));
+        // console.log(JSON.stringify(별,null,2));
+        // console.log(JSON.stringify(별,null,4));
+        // 2, 4는 들여쓰기라고 보면 된다. null은 나중에 배우자!
+
+
+        const 별json=JSON.stringify(별);
+        const 별js=JSON.parse(별json);
+
+        console.log(별json);
+        console.log(별js);
+        // 이런 식으로 깊은 복사로
+        // 새로운 객체를 생성할 수 있다!!
+
+        const 별new=JSON.parse(JSON.stringify(별));
+        별new.이름='달';
+        별new.나이=7;
+        별new.종족='햄스터';
+        console.log(별);
+        console.log(별new);
+
+        // JSON <-> 객체로 와리가리  가능하다.
+
+        // JSON은 메소드가 들어갈 수 없으므로, 속성만 복사할 때 사용가능하다.
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체(Object)</title>
+    <script>
+        // 배열 [ 1,2,3,4,5 ]
+        // 객체 { name: '홍길동', age:30 }
+        // JSON { "name": "홍길동", "age":30 } 형식
+        // JSON은 js에서만 쓰는게 아니라 다른 언어에서도 사용하기에 주석을 사용하지 않음!
+        // 함수도 들어가면 안 된다.
+
+        // 배열은 인덱스 때문에 순서가 중요하지만, 객체는 순서가 딱히 없다.
+
+        // 객체: object
+        // 속성: property
+        // 메소드: method( 객체 내 함수 )
+
+        // 추가, 수정, 제거
+        // 객체.속성이름=머시기 하면 추가
+        // 객체.있는속성=머시기 하면 수정
+        // delete 객체.속성 하면 삭제
+        // 객체.속성 하면 읽기
+
+        // 데이터에서 가장 중요한 4가지!
+        // CRUD 생성, 읽기, 수정, 삭제
+
+
+
+        /* 책 249p 예제 */
+        const pet = {
+            name: '구름',
+            // eat: function(food){
+            //     alert(this.name +'은/는 '+ food + '을/를 먹습니다.');
+            // }
+            // 정석
+            eat (food) {
+                alert(this.name +'은/는 '+ food + '을/를 먹습니다.');
+            }
+            // 간단 선언( 문법을 줄이기 위해 나온 새로운 방식 )
+            
+            // this는 바로 밖의 scope의 속성, 등을 가져온다.
+        }
+        pet.eat('밥');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>객체 문제</title>
+</head>
+<body>
+    <script>
+        // 책 255p 4번 예제 해보기.
+        const object = {
+            ko: '빵',
+            en: 'bread',
+            ja: 'ㅍㅇ',
+            fr: 'pain',
+            es: 'pan',
+            언어: {
+                ko:'한국어',
+                en:'영어',
+                ja:'일본어',
+                fr:'프랑스어',
+                es:'스페인어'
+            },
+            출력: function(lang){
+                console.log(`${this.ko}은 ${this.언어[lang]}로 ${this[lang]}입니다.`);
+            }
+        }
+        object.출력('es');
+    </script>
+</body>
+</html>

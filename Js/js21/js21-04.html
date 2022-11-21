@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>책 252p. this 차이</title>
+</head>
+<body>
+    <script>
+        // 개중요!
+        const test = {
+            a: function(){
+                console.log(this);
+                console.log(this.누구);
+                setTimeout(function(){
+                    console.log(this.누구);
+                    console.log(this);
+                },1000);
+                // 이녀석 위는 a:function 이므로 누구라는 요소가 없으므로
+                // undefined가 출력된다.
+                setTimeout(()=>{
+                    console.log(this.누구);
+                    console.log(this);
+                },1000);
+                // 화살표함수를 사용하면 a보다 상위인 test를 지칭한다...?
+            },
+            // 이 this는 test 오브젝트를 지칭한다.
+            b: ()=>{
+                console.log(this);
+            },
+            // 이 this는 test보다 상위인 window를 지칭한다.
+            누구: '나요'
+        }
+
+        /* 그러므로! 객체 내의 메소드는 되도록 화살표함수 사용하지 말고
+        function으로 입력하자. */
+
+        test.a();
+        test.b();
+        
+        const ex ={
+            a: {
+                a: {
+                    a: {
+                        a: {
+                            a: {
+                                a: {
+                                    a: 'gd'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            console.log(ex.a.a.a.a.a.a.a);
+            console.log(ex);
+
+    </script>
+</body>
+</html>
