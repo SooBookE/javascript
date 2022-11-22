@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>로대쉬로 오더바이 사용</title>
+    <script src="./js22js/lodash.js"></script>
+</head>
+<body>
+    <script>
+        // 책 289p 예제 5번 해보기.
+        const books = [{
+            name:'혼자 공부하는 파이썬',
+            price:18000,
+            publisher:'한빛미디어'
+        }, {
+            name:'HTML5 웹 프로그래밍 입문',
+            price:26000,
+            publisher:'한빛아카데미'
+        }, {
+            name:'머신러닝 딥러닝 실전 개발 입문',
+            price:30000,
+            publisher:'위키북스'
+        }, {
+            name:'딥러닝을 위한 수학',
+            price: 25000,
+            publisher:'위키북스'
+        }]
+        
+        let output=_.orderBy(books, ['name']);
+        // 키를 뽑기 위해 ['name']으로 작성했다.
+        let output1=_.orderBy(books, x => x.name);
+        // 이렇게 해도 된다..?
+        // 즉, 객체 하나 하나를 {} 매개변수로 받아서, 그 매개변수의 .name을
+        // 기본값인 asc으로 정리한 것이다.
+        let output2=_.orderBy(books, ['name','price'], ['desc','asc']);
+        // 요소마다 asc, desc 각각 적용
+
+        
+
+        console.log(output);
+        console.log(output1);
+        console.log(output2);
+
+        // Ascending(ASC) : 오름차순
+        // Descending(DESC) : 내림차순
+
+    </script>
+</body>
+</html>

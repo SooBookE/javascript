@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOMContentLoaded로 고치기!</title>
+    <script>
+        
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const 기계 = text=>`<h1>${text}</h1>`;
+            document.body.innerHTML += 기계('1번째 script 태그');
+            document.body.innerHTML += 기계('2번째 script 태그');
+            document.body.innerHTML += 기계('3번째 script 태그');
+        });
+        // 맨 마지막에 실행하기.
+
+
+
+        /* 위와 같은 기능인 구버전의 방식. 성능이 좀 떨어지기에 위의 기능으로
+        개선되었다. */
+
+        // document.onload = function(){}
+
+    </script>
+</head>
+<body>
+    <h1>1번째 HTML 태그</h1>
+    <h1>2번째 HTML 태그</h1>
+</body>
+</html>

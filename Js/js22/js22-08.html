@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOMContentLoaded 써야하는 이유!</title>
+    <script>
+        const 기계 = text=>`<h1>${text}</h1>`;
+        // text 넣는 기계 생성.
+    </script>
+    <script>
+        document.body.innerHTML += 기계('1번째 script 태그');
+        // innerHTML 많이 쓸 문법. body 안에 뒤에 내용으로 HTML을 작성해라.
+    </script>
+    <!-- 이 당시에 body가 존재하지 않으므로, 실행되지 않는다. -->
+
+    <!-- head에서 일어나는 스크립트들 -->
+</head>
+<body>
+    <script>
+        document.body.innerHTML += 기계('2번째 script 태그');
+        </script>
+    <h1>1번째 HTML 태그</h1>
+    <script>
+        document.body.innerHTML += 기계('3번째 script 태그');
+    </script>
+    <h1>2번째 HTML 태그</h1>
+</body>
+</html>

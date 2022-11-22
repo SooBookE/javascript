@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>기본 자료형 String의 프로토타입</title>
+</head>
+<body>
+    <script>
+        /* 잘 쓰는 String의 프로토타입 */
+
+        let str1 = '                         안녕하세요                     ';
+        console.log(str1);
+        console.log(str1.trim());
+        // trim: 공백을 잘라준다.
+        let str2 = 'a,b,c,d,e,f,g,h,i,j';
+        str2_ar=str2.split(',');
+        console.log(str2_ar);
+        let str3 = `제가만약
+        나비라면
+        훨훨
+        날아갈텐데`; // 백틱 써야한다.
+        let str3_ar=str3.split('\n');
+        console.log(str3_ar);
+        // split: () 안의 내용을 기준으로 나눠서 배열로 만들어준다.
+
+
+        /* 문제! str3의 공백을 지워보라. */
+
+        for(let i=0; i<4 ; i++){
+            str3_ar[i]=str3_ar[i].trim();
+        }
+        // for로 하는 방법
+
+        str3_ar=str3_ar.map((v)=>{return v.trim()});
+        // map으로 하는 방법
+
+        console.log(str3_ar);
+
+    </script>
+</body>
+</html>
