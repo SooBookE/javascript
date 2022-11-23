@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>스타일 잡아옇기 + 문제</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const header=document.querySelectorAll('h1');
+
+
+
+            /* 문제: 완성된 글자 HEADERS 뒤에 
+            1부터 순서대로 숫자를 적용하라. */
+
+
+            /* 전역 변수 이용 */
+            // let i = 1;
+            // header.forEach(v=>{
+            //     v.textContent = 'HEADERS'+' \ '+i;
+            //     v.style.color = 'white';
+            //     v.style.backgroundColor = 'black';
+            //     v.style.padding = '10px';
+            //     i++;
+            // })
+
+
+
+
+            /* 인덱스 이용 */
+            // 문제가 자꾸 추가된다...
+            // 1. 글자 크기에 맞춰서 색칠 영역을 줄이기.
+            // 2. 짝수 텍스트 라인만 글자는 검정, 배경은 노란색으로 변경하기.
+
+            header.forEach((v,i)=>{
+                v.textContent = 'HEADERS'+' \ '+(i+1);
+                if((i+1)%2==0){
+                    v.style.backgroundColor = 'yellow';
+                    v.style.color = 'black';
+                }else{
+                    v.style.color = 'white';
+                    v.style.backgroundColor = 'black';
+                }
+                v.style.padding = '10px';
+                v.style.display='inline-block';
+                v.style.margin = '10px 1000px 10px 10px';
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+    <h1></h1>
+</body>
+</html>

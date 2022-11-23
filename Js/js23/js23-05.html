@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>setAttribute</title>
+    <script>
+        // http://placekitten.com/너비/높이
+        // 사용하면 그 사이즈에 맞는 고양이 사진이 출력되는 사이트인데,
+        // 이를 이용해서 연습을 해보자.
+        document.addEventListener("DOMContentLoaded",()=>{
+            const rects = document.querySelectorAll('.rect');
+
+            Array.from(rects).reduce((acc,cur,ind)=>{
+                // 유사배열을 강제로 배열로 만들어서 reduce를 사용했다.
+                const width = (ind + 1)*100;
+                const src = `http://placekitten.com/${width}/250`;
+
+                // { 셋어트리뷰트...
+                // cur.setAttribute('src',src);
+                // 사용법 알 것!
+
+                cur.src = src;
+                // 위를 간단하게 축약한 문법. 
+                // 셋어트리뷰트... }
+            },0);
+        })
+    </script>
+</head>
+<body>
+    <img src="" alt="" class="rect">
+    <img src="" alt="" class="rect">
+    <img src="" alt="" class="rect">
+    <img src="" alt="" class="rect">
+    <img src="" alt="" class="rect">
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>textContent와 innerHTML</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const header1 = document.querySelector('#a1');
+            const header2 = document.querySelector('#a2');
+
+            window.console.log(header1); // BOM
+            window.console.log(header2); // BOM
+
+            header1.textContent = '<h1>이것은 textContent 내용입니다.</h1>';
+            // text 자체를 넣을 때. 원래는 innerText를 사용했지만, 속도 문제로 새로 나온 문법.
+            header2.innerHTML = '<h1>이것은 innerHTML 내용입니다.</h1>';
+            // html의 기능을 살리면서 text를 넣을 때.
+            
+        })
+    </script>
+</head>
+<body>
+    <h1 id="a1"></h1>
+    <h1 id="a2"></h1>
+</body>
+</html>
