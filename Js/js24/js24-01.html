@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>스타일 적용 연습(그라데이션)</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const divs = document.querySelectorAll('div');
+            
+            divs.forEach((v,i)=>{
+                console.log(v,i);
+                const val = i*10;
+                v.style.height = '10px';
+                v.style.backgroundColor = `rgba(${val},${val},${val})`;
+                // 브라우저 콘솔에서 기기 툴바 전환 버튼 좌측에 각 요소를 마우스로 호버링하면
+                // 검사할 수 있는 버튼이 있다.
+            })
+        })
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

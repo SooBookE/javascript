@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>객체를 배열로 만들면서 빼기</title>
+    <script src="../js22/js22js/lodash.js"></script>
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const books = [{
+            name:'혼자 공부하는 파이썬',
+            price:18000,
+            publisher:'한빛미디어'
+            }, {
+            name:'HTML5 웹 프로그래밍 입문',
+            price:26000,
+            publisher:'한빛아카데미'
+            }, {
+            name:'머신러닝 딥러닝 실전 개발 입문',
+            price:30000,
+            publisher:'위키북스'
+            }, {
+            name:'딥러닝을 위한 수학',
+            price: 25000,
+            publisher:'위키북스'
+        }]
+
+
+        // console.log(Object.keys(books[0]));
+        // 오브젝트의 프로토타입 기능으로,
+        // 키를 배열로 뽑을 수 있다.
+
+        // console.log(Object.values(books[0]));
+        // 오브젝트의 프로토타입 기능으로,
+        // 밸류를 배열로 뽑을 수 있다.
+        
+
+        let key_arr=Object.keys(books[2]);
+
+        console.log(key_arr);
+        console.log(Object.values(books[2]));
+
+        let key_obj = {...key_arr};
+        console.log(key_obj);
+        /* 전개 연산자로 배열을 객체로 만들어 봤다. */
+
+        // const output=_.orderBy(books, ['name']);
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

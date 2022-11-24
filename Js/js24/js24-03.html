@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>연습해보기</title>
+    <script>
+        // div.d1>h1{저를 자바스크립트로 작성해주세요.}^div.d2>span#s1 style="color: blue"{아주 감사합니다.}
+        // 를 작성해보라!
+        document.addEventListener("DOMContentLoaded",()=>{
+
+            // const div1 = document.createElement('div');
+            // const div2 = document.createElement('div');
+            // const h1 = document.createElement('h1');
+            // const span = document.createElement('span');
+            
+            // document.body.appendChild(div1);
+            // div1.appendChild(h1);
+            // div1.setAttribute('class','d1');
+            // h1.textContent = '저를 자바스크립트로 작성해주세요.';
+            
+            // document.body.appendChild(div2);
+            // div2.setAttribute('class','d2');
+            // div2.appendChild(span);
+            // span.setAttribute('id','s1');
+            // span.textContent = '아주 감사합니다.';
+            // span.style.color = 'blue';
+            
+            const div = document.createElement('div');
+            const h1 = document.createElement('h1');
+            const span = document.createElement('span');
+
+
+            document.body.appendChild(div);
+            div.appendChild(h1);
+            div.setAttribute('class','d1');
+            h1.textContent = '저를 자바스크립트로 작성해주세요.';
+            
+            document.body.appendChild(div);
+            div.setAttribute('class','d2 d3 d4');
+            // 같은 이름으로 setAttribute 사용하면 이전 것이 덮어씌워진다.
+            div.setAttribute('style','background-color: yellow');
+            // settAttribute로도 배경색 등의 속성을 삽입할 수 있다.
+            div.appendChild(span);
+            span.setAttribute('id','s1');
+            span.textContent = '아주 감사합니다.';
+            span.style.color = 'blue';
+
+            // 이러면 하나의 div안에 다 들어가버린다.
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

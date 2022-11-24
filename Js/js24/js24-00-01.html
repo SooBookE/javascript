@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>배열을 객체로 만들기</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+
+            /* forEach로 돌려보기 */
+
+            // const arr = ['밥먹자','뛰놀자','공부하자','잠자자','춤추자'];
+            // const obj = {};
+
+            // arr.forEach((v,i)=>{
+            //     obj[i] = v;
+
+            // })
+            // console.log(obj);
+
+
+
+            /* forEach로 돌리는데 키도 지정해보기. */
+
+            const arr = ['밥먹자','뛰놀자','공부하자','잠자자','춤추자'];
+            const key = ['식사','플레이','학습','수면','춤'];
+            const obj = {};
+
+            
+            arr.forEach((v,i)=>{
+                obj[key[i]]=v;
+            })
+            console.log(obj);
+
+            // 이렇게 쉬웠다고??
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

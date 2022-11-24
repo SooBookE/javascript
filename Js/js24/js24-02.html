@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>★★문서객체 생성하기★★</title>
+    <!-- body에 하나도 적지 않고 HTML 생성하기 -->
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const header = document.createElement('h1');
+            // h1 요소 생성.
+
+            document.body.appendChild(header);
+            // 생성한 header를 body의 자식으로 생성한다.
+            // body>h1의 개념.
+
+            // addEventListener 아래에 적든, 위에 적든 상관 없다.
+
+            header.textContent = '문서 객체 동적으로 생성하기.';
+
+            header.setAttribute('id', 'a1');
+            header.setAttribute('class','h1_a1');
+            // setAttribute로 속성 만들기??
+            // header의 속성조차 삽입할 수 있다!!!
+
+            header.style.color = 'white';
+            header.style.backgroundColor = 'black';
+
+            /* 이게 다 DOM */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /* ================================== */
+            // 문제 )
+            // 검은 글자, 노란 바탕으로 '나 여기 있어요!!!'인 h2를
+            // div의 자식 속성으로 삽입하라.
+
+            const cell = document.createElement('div');
+            const hereIAm = document.createElement('h2');
+
+
+            /* 방법1. 메소드체이닝 */
+            // document.body.appendChild(cell).appendChild(hereIAm);
+
+            /* 방법2. 강사님 방식 */
+            document.body.appendChild(cell);
+            cell.appendChild(hereIAm);
+            // document.createElement('div')가 통째로 들어가도,
+            // createElement로 만든 div에 들어가는 것이니까...? 문법적 이상은 없다.
+
+
+            // cell, hereIAm 등으로 생성하면 이렇게 헷갈리니까,
+            // 웬만하면 div, h2 등의 이름으로 선언한다.
+            
+
+
+            // document.body.div.appendChild(hereIAm);
+            // 얘는 안돼!
+
+            hereIAm.textContent = '나 여기 있어요!!!';
+            hereIAm.style.color = 'black';
+            hereIAm.style.backgroundColor = 'yellow';
+
+
+
+
+
+
+
+
+
+
+
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

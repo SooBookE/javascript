@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>타이머 숙제</title>
+    <script>
+        // document.addEventListener("DOMContentLoaded",()=>{
+            
+
+
+
+
+            // 의문1: 왜 사용하면 안될까?
+            // document 먼저 로딩 되고, onclick에 fn()이 없다고 인식한다....?
+            // 그래서 document.addEventListener("... 바깥에 let fn = 등으로 선언은 해줘야
+            // 버튼의 onclick이 함수가 있다는 사실을 인지한다...
+            // ==============> JS가 이상하다!
+
+
+
+            
+            
+            let msec = 0;
+            let sec = 0;
+            let min = 0;
+            
+            function fn () {
+                let selector = document.querySelector('div');
+                // 의문2: 왜 함수 안에 넣어야 할까?
+                // case1 : 전역 변수로 선정하면, div가 생성되기 전에 div를 선택하기에
+                //         에러가 뜬다.
+                // case2 : 함수 안에 선언하면,
+                //         함수를 호출할 때, scope 내용이 실행되므로,
+                //         이게 정상이다!!!!!!!!!!!!!
+
+
+
+
+                
+                setInterval(()=>{
+                    
+                    selector.textContent = `${min}분 ${sec}초`;
+                    sec++;
+    
+                    if(sec==60){
+                        sec=0;
+                        min++;
+                    }
+                },1000)
+
+            }
+        // })
+
+
+        // setInterval로 밀리초를 단위를 구현하면 느리므로,
+        // date의 밀리초를 가져와야 한다.
+    </script>
+</head>
+<body>
+    <div></div>
+    <button onclick="fn()">시작</button>
+    <!-- <button onclick="">정지</button>
+    <button onclick="">리셋</button> -->
+</body>
+</html>
