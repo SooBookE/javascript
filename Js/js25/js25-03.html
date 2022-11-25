@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>문서객체 생성/이동 연습</title>
+    <script>
+        // 이무진 예제 )
+        // 동작버튼을 누르면 신호등이
+        // 초록불 5초
+        // 노란불 2초
+        // 빨간불 3초
+        // 켜지면서 순회하도록 만들어보라.
+        // 단, 정지 버튼을 누르면 멈춘다.
+        
+        let start = function(){};
+        // 컴퓨터야 여기 start라는 펑션이 있단다 ^^
+        let stop = function(){};
+        // 컴퓨터야 여기 stop이라는 펑션이 있단다 ^^
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            const div1 = document.createElement('div');
+            const div2 = document.createElement('div');
+            const div3 = document.createElement('div');
+            const div4 = document.createElement('div');
+            const div5 = document.createElement('div');
+            const bt1 = document.createElement('button');
+            const bt2 = document.createElement('button');
+            let ch1 = 0;
+            let ch2 = 0;
+            let ch3 = 0;
+
+            // html 요소 삽입
+            document.body.appendChild(div5);
+            div5.appendChild(div1);
+            div5.appendChild(div2);
+            div5.appendChild(div3);
+            document.body.append(div4, bt1, bt2);
+
+            // 신호등 아웃라인
+            div1.style.width = '100px';
+            div2.style.width = '100px';
+            div3.style.width = '100px';
+            div5.style.width = '200px';
+            div1.style.height = '100px';
+            div2.style.height = '100px';
+            div3.style.height = '100px';
+            div5.style.height = '400px';
+            div5.style.display = 'flex';
+            div5.style.flexDirection = 'column';
+            div5.style.alignItems = 'center';
+            div5.style.justifyContent = 'center';
+            div5.style.backgroundColor = 'black';
+            div1.style.borderRadius = '50%';
+            div2.style.borderRadius = '50%';
+            div3.style.borderRadius = '50%';
+
+            bt1.textContent = '동작';
+            bt2.textContent = '정지';
+            bt1.setAttribute('onclick','start()');
+            bt2.setAttribute('onclick','stop()');
+            
+            div1.style.backgroundColor = 'rgba(255,255,255,0.5)';
+            div2.style.backgroundColor = 'rgba(255,255,255,0.5)';
+            div3.style.backgroundColor = 'rgba(255,255,255,0.5)';
+            
+            
+            
+            // 함수 생성
+            start = function (){
+                let light1 = ()=>{
+                    div1.style.backgroundColor = 'green';
+                    div2.style.backgroundColor = 'rgba(255,255,255,0.5)';
+                    div3.style.backgroundColor = 'rgba(255,255,255,0.5)';
+                    div4.textContent = '붉은색, 푸른색~♪';
+                    ch1=setTimeout(light2,5000);
+                }
+                let light2 = ()=>{
+                    div2.style.backgroundColor = 'yellow';
+                    div1.style.backgroundColor = 'rgba(255,255,255,0.5)';
+                    div3.style.backgroundColor = 'rgba(255,255,255,0.5)';
+                    div4.textContent = '그 사이 3초 그 짧은 시간~♬';
+                    ch2=setTimeout(light3,2000);
+                }
+                let light3 = ()=>{
+                    div3.style.backgroundColor = 'red';
+                    div1.style.backgroundColor = 'rgba(255,255,255,0.5)';
+                    div2.style.backgroundColor = 'rgba(255,255,255,0.5)';
+                    div4.textContent = '노란색 빛을 내는~♩ 저기 저 신호등이~♪';
+                    ch3=setTimeout(light1,3000);
+                }
+                light1();
+            }
+            
+            stop = function (){
+                clearTimeout(ch1);
+                clearTimeout(ch2);
+                clearTimeout(ch3);
+                div1.style.backgroundColor = 'rgba(255,255,255,0.5)';
+                div2.style.backgroundColor = 'rgba(255,255,255,0.5)';
+                div3.style.backgroundColor = 'rgba(255,255,255,0.5)';
+                div4.textContent = '\ ';
+            }
+            
+        })
+        
+    </script>
+</head>
+<body>
+    <!-- 잘 생각하면, for로 돌릴 수도 있다. -->
+    <!-- div{display: none} 얘는 안보이게 하지만,
+    div 자체도 없애버린다. -->
+    <!-- 그래서 나온 친구가 visibility:hidden 
+    공간은 남아있게 하는 친구.-->
+    <script>
+        // <button onclick="fn()"></button>
+        // button.addEventListener("click",fn)
+        // 버튼이 클릭 될 때를 감시하고 있는 구문!
+        // 갈켜 주시것지
+    </script>
+</body>
+</html>

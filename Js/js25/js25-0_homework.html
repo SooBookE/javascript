@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>타이머 숙제</title>
+    <script>
+        
+            let msec = 0;
+            let sec = 0;
+            let min = 0;
+            
+            function fn () {
+                let selector = document.querySelector('div');
+                let now = new Date().getMilliseconds();
+                let clac = 0;
+                
+                
+                setInterval(()=>{
+                    
+                    clac = (new Date().getMilliseconds())-now;
+                    
+                    
+                    selector.textContent = `${min}min ${sec}sec ${msec}msec`;
+                    
+                    setInterval(()=>{
+                        
+    
+                    },1000);
+
+
+
+
+                    sec++;
+                    if(sec==60){
+                        sec=0;
+                        min++;
+                    }
+                },100)
+
+            }
+
+
+        // setInterval로 밀리초를 단위를 구현하면 느리므로,
+        // date의 밀리초를 가져와야 한다.
+    </script>
+</head>
+<body>
+    <div>0min 0sec 0msec</div>
+    <button onclick="fn()">시작</button>
+    <button onclick="">정지</button>
+    <button onclick="">리셋</button>
+</body>
+</html>

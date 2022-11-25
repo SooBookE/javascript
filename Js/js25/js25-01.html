@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>지난 시간 몸풀기 문제</title>
+    <script>
+        // <h1>다음 html 형식을 JS로 작성하시오.</h1>
+        // <div class="c1">
+        //     <span>1. 문서객체 생성하기</span>
+        //     <span>그리고 추가하기</span>
+        // </div>
+        // <div class="c2">
+        //     <ul>
+        //         <li>생성하고</li>
+        //         <li>추가하고</li>
+        //         <li>문서읽고</li>
+        //     </ul>
+        // </div>
+        // <span><a href="www.naver.com">네이버링크</a></span><br>
+        // <span><a href="www.daum.net">다음링크</a></span>
+
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            const h1 = document.createElement('h1');
+            const div1 = document.createElement('div');
+            const div2 = document.createElement('div');
+            const ul = document.createElement('ul');
+            const li1 = document.createElement('li');
+            const li2 = document.createElement('li');
+            const li3 = document.createElement('li');
+            const span1 = document.createElement('span');
+            const span2 = document.createElement('span');
+            const span3 = document.createElement('span');
+            const span4 = document.createElement('span');
+            const a1 = document.createElement('a');
+            const a2 = document.createElement('a');
+            const br = document.createElement('br');
+
+            document.body.appendChild(h1);
+            h1.textContent = '다음 html 형식을 JS로 작성하시오.';
+
+            document.body.appendChild(div1);
+            div1.setAttribute('class','c1');
+            div1.appendChild(span1);
+            div1.appendChild(span2);
+            span1.textContent = '1. 문서객체 생성하기';
+            span2.textContent = ' 그리고 추가하기';
+
+            document.body.appendChild(div2);
+            div2.setAttribute('class','c2');
+            div2.appendChild(ul);
+            ul.appendChild(li1);
+            ul.appendChild(li2);
+            ul.appendChild(li3);
+            li1.textContent = '생성하고';
+            li2.textContent = '추가하고';
+            li3.textContent = '문서읽고';
+
+            document.body.appendChild(span3);
+            document.body.appendChild(br);
+            document.body.appendChild(span4);
+            span3.appendChild(a1);
+            span4.appendChild(a2);
+            a1.setAttribute('href','www.naver.com');
+            a2.setAttribute('href','www.daum.net');
+            a1.textContent = '네이버링크';
+            a2.textContent = '다음링크';
+
+        })
+        // appendChild() : 자손 만들 때( return 값이 있어서 메소드 체이닝 가능 )
+        // append(div1, div2, span1, span2,...) : 형제 만들 때( return 값이 없어서 메소드 체이닝 불가능 )
+        // appendChild().append() 가능.
+        // append().appendChild() 불가능.
+
+
+        // append(변수, 상수, '문자', 5>4)
+        // 1. 변수, 2. 상수, 3. '문자', 4. true
+        // => append는 문자나 boolean 타입도 삽입한다.
+    </script>
+</head>
+<body>
+</body>
+</html>
