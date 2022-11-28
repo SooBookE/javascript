@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>이벤트 연결/제거하기</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const h1 = document.createElement('h1');
+            const p = document.createElement('p');
+            let counter = 0;
+            document.body.appendChild(h1);
+            // h1 생성 후, body에 삽입.
+            for( let i=0 ; i<2 ; i++ ){
+                const button = document.createElement('button');
+                document.body.appendChild(button);
+                // button 생성 후, body에 삽입.
+            }
+            document.body.appendChild(p);
+            const bt = document.querySelectorAll('button');
+            bt[0].textContent = '이벤트 연결';
+            bt[1].textContent = '이벤트 해제';
+            p.textContent = '이벤트 연결 상태 :';
+
+            h1.innerHTML = '<h1>클릭 횟수: 0</h1>';
+            h1.style.userSelect = 'none';
+
+            const fn = _=> h1.innerHTML =  `<h1>클릭 횟수: ${counter++}</h1>`
+            
+            bt[0].addEventListener('click',()=>{
+                h1.addEventListener('click',fn);
+                p.textContent = '이벤트 연결 상태 : 연결 중';
+                bt[0].innerHTML = '이벤트 연결중';
+                bt[1].innerHTML = '이벤트 해제';
+            })
+            bt[1].addEventListener('click',()=>{
+                h1.removeEventListener('click',fn);
+                bt[0].innerHTML = '이벤트 연결';
+                bt[1].innerHTML = '이벤트 종료됨';
+                p.textContent = '이벤트 연결 상태 : 해제';
+                // counter = 0; // 카운트 초기화.
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

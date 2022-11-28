@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>강사님 풀이</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const h1 = document.createElement("h1");
+            const b1 = document.createElement("button");
+            const b2 = document.createElement("button");
+            const bx = document.createElement("button");
+            document.body.append(b1,b2,bx,h1);
+            b1.innerHTML = '동작버튼';
+            b2.innerHTML = '해제버튼';
+            bx.innerHTML = '잠금버튼';
+            let islock = false;
+            
+            b1.addEventListener("click", ()=>{
+                if(!islock){
+                    setTimeout(()=>{
+                        document.body.appendChild(h1);
+                        h1.textContent = '안녕하세요. 반갑습니다.';
+                    },3000);
+                }
+            });
+            b2.addEventListener("click", ()=>{
+                if(!islock){
+                    setTimeout(()=>{
+                        document.body.removeChild(h1);
+                    },3000);
+                }
+            });
+            bx.addEventListener("click",()=>{
+                if(islock){
+                    b1.innerHTML = '동작버튼';
+                    b2.innerHTML = '해제버튼';
+                    bx.innerHTML = '잠금버튼';
+                }else{
+                    b1.innerHTML = '버튼잠김';
+                    b2.innerHTML = '버튼잠김';
+                    bx.innerHTML = '잠금해제';
+                }
+                islock = !islock;
+            })
+            /* !!!!!!!!!!!!!!!!!현 상태를 기억하는 변수를 만들 것!!!!!!!!!!!!!!! */
+            // 모든 언어에서 다 사용하는 내용이므로, 잘 알아둘 것!
+
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

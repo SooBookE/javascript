@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>addEventListener 연습</title>
+    <script>
+        // 동작 버튼을 누르면 3초 뒤
+        // '안녕하세요. 반갑습니다.' 출력.(h1 크기로)
+        // 해제 버튼을 누르면 3초 뒤 문구가 사라짐.(h1 태그도 사라지게)
+        // 잠금버튼을 누르면 동작 버튼과 해제 버튼이 눌려지지 않고,
+        // 잠금버튼을 한번 더 누르면 다시 동작 가능해진다.
+        // 현 상태를 나타내는 표현도 출력하기.
+        document.addEventListener("DOMContentLoaded",()=>{
+            const h1 = document.createElement('h1');
+            const p = document.createElement('p');
+            const div = document.createElement('div');
+            let toggleBtn = true;
+            
+            
+            document.body.appendChild(div);
+            
+            for( let i=0; i<3 ; i++ ){
+                const button = document.createElement('button');
+                document.body.appendChild(button);
+                if(i==0){
+                    button.textContent = '동작 버튼';
+                }else if(i==1){
+                    button.textContent = '해제 버튼';
+                }else{
+                    button.textContent = '잠금 버튼';
+                    document.body.appendChild(p).innerHTML = '현재는 동작 <mark>가능</mark>입니다.';
+                }
+            }
+            let btn = document.querySelectorAll('button');
+
+            btn[0].addEventListener('click',()=>{
+                if(toggleBtn){
+                setTimeout(()=>{
+                    div.appendChild(h1).textContent = '안녕하세요. 반갑습니다.';
+                },3000)
+            }
+            });
+            btn[1].addEventListener('click',()=>{
+                if(toggleBtn){
+                setTimeout(()=>{
+                    div.removeChild(h1);
+                },3000)
+            }
+            });
+            btn[2].addEventListener('click',()=>{
+                toggleBtn=!toggleBtn;
+                if(!toggleBtn){
+                    p.innerHTML = '현재는 동작 <span>불가</span>입니다.';
+                    document.querySelector('span').style.backgroundColor = 'red';
+
+                }else{
+                    p.innerHTML = '현재는 동작 <mark>가능</mark>입니다.';
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
