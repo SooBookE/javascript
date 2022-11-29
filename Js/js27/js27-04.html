@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>응용!</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+    </style>
+    <script>
+        // 랜덤하게 '●'가 출현.
+        // 별이 가까이 가서 겹치면, 점수 +1이 되고,
+        // '●'는 또 다른 곳에 램덤하게 출현.
+        document.addEventListener("DOMContentLoaded",()=>{
+            // const star = document.createElement('h1');
+            const star = document.createElement('img');
+            const gameBoard = document.createElement('div');
+            const score = document.createElement('h1');
+            let sp = 0;
+            document.body.append(gameBoard, score);
+            score.textContent = '점수: 0';
+            gameBoard.appendChild(star);
+            star.setAttribute('src','./IMG/mococo.png');
+            // star.innerHTML = '★';
+            // star.style.margin='0';
+            // star.style.padding='0';
+            // star.style.userSelect='none';
+            star.style.position='absolute';
+            star.style.width='100px';
+            star.style.height='100px';
+            star.style.display='flex';
+            star.style.justifyContent='center';
+            star.style.alignItems='center';
+            
+            gameBoard.style.width='500px';
+            gameBoard.style.height='500px';
+            gameBoard.style.padding='0';
+            gameBoard.style.border='1px solid black';
+            gameBoard.style.position='relative';
+            gameBoard.style.overflow='initial';
+            
+            
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            document.body.style.display = 'flex';
+            document.body.style.justifyContent = 'center';
+            document.body.style.alignItems = 'center';
+            
+            let [x,y]=[0,0];
+            const block = 20;
+            
+            const print = _=>{
+                star.style.left = x*block+'px';
+                star.style.top = y*block+'px';
+            }
+            print();
+            
+            const keys = {ArrowLeft: 37, ArrowUp: 38, ArrowRight: 39, ArrowDown: 40};
+            const {ArrowLeft:left, ArrowUp:up, ArrowRight:right, ArrowDown:down}=keys;
+            let check = 0;
+            document.body.addEventListener("keydown",event=>{
+                check = event.keyCode;
+                if(left===check)
+                {
+                    if(x!==0){
+                        x-=1;
+                    }
+                }
+                if(up===check)
+                {
+                    if(y!==0){
+                        y-=1;
+                    }
+                }
+                if(right===check)
+                {
+                    if(x<23){
+                        x+=1;
+                    }
+                }
+                if(down===check)
+                {
+                    if(y<23){
+                        y+=1;
+                    }
+                }
+                print();
+                if(x==ran_x&&y==ran_y){
+                    ++sp;
+                    star.style.scale=sp*2;
+                    score.innerHTML = `점수 : ${sp}`;
+                    ran_x = Math.floor(Math.random()*23)+1;
+                    ran_y = Math.floor(Math.random()*23)+1;
+                    [x_ball,y_ball]=[ran_x*block,ran_y*block];
+                    print_ball();
+                }
+                // if(sp==5){
+                //     star.style.color='red';
+                //     star.innerHTML = '◎';
+                // }
+            })
+            const ball = document.createElement('h1');
+            gameBoard.appendChild(ball);
+            ball.innerHTML = '●';
+            ball.style.margin='0';
+            ball.style.padding='0';
+            ball.style.userSelect='none';
+            ball.style.position='absolute';
+            ball.style.display='flex';
+            ball.style.justifyContent='center';
+            ball.style.alignItems='center';
+
+            let ran_x = Math.floor(Math.random()*23)+1;
+            let ran_y = Math.floor(Math.random()*23)+1;
+            let [x_ball,y_ball]=[ran_x*block,ran_y*block];
+            const print_ball = _=>{
+                ball.style.left=x_ball+'px';
+                ball.style.top=y_ball+'px';
+            }
+            print_ball();
+        })
+        </script>
+</head>
+<body>
+
+</body>
+</html>

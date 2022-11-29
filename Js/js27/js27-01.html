@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>글자 수 출력하기</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const h1 = document.createElement("h1");
+            const textarea = document.createElement("textarea");
+
+            document.body.append(h1, textarea);
+            h1.textContent = `글자 수: 0`;
+
+            textarea.addEventListener('keyup',(event)=>{
+                const length = textarea.value.length;
+                // textarea의 값의 길이를 const로 받는다.
+                h1.textContent = `글자 수: ${length}`;
+            })
+            // keydown, keypress는 문자인식이나 반응의 문제로 잘 사용하지 않는다.
+            // keyup이 낫다.
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

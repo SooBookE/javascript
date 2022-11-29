@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>키보드 이벤트</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const h1 = document.querySelector('h1');
+            const print = (event)=>{
+                let list = '';
+                list += `alt: ${event.altKey}<br>`;
+                list += `ctrl: ${event.ctrlKey}<br>`;
+                list += `shift: ${event.shiftKey}<br>`;
+                list += `code: ${typeof(event.code) !== 'undefined'?event.code:event.keyCode}<br>`;
+                list += `key type: ${typeof(event.code)}`;
+                h1.innerHTML = list;
+            }
+            document.addEventListener("keydown",print);
+            document.addEventListener("keyup",print);
+        })
+    </script>
+</head>
+<body>
+    <h1></h1>
+</body>
+</html>

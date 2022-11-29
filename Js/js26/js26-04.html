@@ -3,7 +3,17 @@
 <head>
     <title>331p 예제 작성해보기</title>
     <script>
-        document.addEventListener("DOMContentLoaded",)
+        document.addEventListener("DOMContentLoaded",()=>{
+            const h1 = document.createElement('h1');
+            const textarea = document.createElement('textarea');
+
+            document.body.append(h1, textarea);
+
+            textarea.addEventListener('keyup',_=>{
+                const length = textarea.value.length;
+                h1.textContent = `글자 수: ${length}`;
+            })
+        })
     </script>
 </head>
 <body>
