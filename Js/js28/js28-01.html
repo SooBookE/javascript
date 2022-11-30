@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>339p 환율계산기로 만들기</title>
+    <script>
+        /* 달러 환율 계산기
+        환율 1313원.
+        20달러
+        1313*20 = ?? */
+        document.addEventListener("DOMContentLoaded",()=>{
+            const header = document.createElement("h1");
+            const input = document.createElement("input");
+            const button = document.createElement("button");
+            const reset = document.createElement("button");
+            const p = document.createElement("p");
+            const br = document.createElement("br");
+
+            document.body.append(header, input, br, button, reset, p);
+
+            input.setAttribute('type','text');
+            header.textContent = '달러-원화 환율 계산기';
+            input.setAttribute('placeholder','달러-원화 환전');
+            button.textContent = '계산';
+            reset.textContent = '리셋';
+            p.textContent = '달러를 입력해주세요.';
+            
+            button.addEventListener("click",()=>{
+                const dollor = Number(input.value);
+                
+                if(isNaN(dollor)){
+                    p.textContent = '숫자로 입력해주세요.';
+                    return;
+                }
+                
+                const won = dollor * 1313;
+                p.textContent = `${won.toLocaleString("ko-KR")} 원`;
+            })
+            reset.addEventListener("click",()=>{
+                input.value = '';
+                p.textContent = '달러를 입력해주세요.';
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

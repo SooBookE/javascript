@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>339p 예제(단위 계산)</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            for(let i=0 ; i<2 ; i++){
+                const input = document.createElement('input');
+                document.body.appendChild(input);
+                if(i==0){
+                    const br = document.createElement('br');
+                    document.body.appendChild(br);
+                }
+            }
+            const p = document.createElement('p');
+
+            const picker = document.querySelectorAll('input');
+            picker[0].setAttribute('type','text');
+            picker[0].setAttribute('placeholder','입력하세요.');
+            picker[1].setAttribute('type','button');
+            picker[1].setAttribute('value','계산');
+        })
+
+        /* 수정해봐야 한다... */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

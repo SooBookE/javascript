@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>강사님 풀이</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const input = document.createElement('input');
+            const button = document.createElement('button');
+            const p = document.createElement('p');
+            document.body.append(input, '달러 ', button, p);
+            button.innerHTML = '계산';
+            const won = 1313;// 현재 환율 값.
+
+            button.addEventListener("click",()=>{
+                const dollar = input.value*1;
+
+                if(isNaN(dollar)){
+                    // 숫자가 아닌 것을 판별한다.
+                    p.textContent = '숫자를 입력하세요.';
+                    return; // 조기 종료.
+                }
+                let sum = dollar*won;
+                p.textContent = sum.toLocaleString("ko-KR")+'원';
+                
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
