@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>344p 예제 해보기</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const select = document.createElement("select");
+            const p = document.createElement("p");
+
+            document.body.append(select, p);
+            select.multiple=true;
+            // select의 multiple 속성을 켜주는 구문.
+            // select.setAttribute('multiple',true);
+            // 이렇게 해도 출력은 되더라.
+            const opt = ['떡볶이', '오뎅', '튀김', '순대'];
+            for( let i=0; i<opt.length ; i++ ){
+                let option = document.createElement('option');
+                select.appendChild(option);
+                option.textContent = opt[i];
+            }
+
+            select.addEventListener("change",(event)=>{
+                const options = event.currentTarget.options;
+                const list = [];
+                console.log(options);
+                
+                for( const option of options ){
+                    if(option.selected){
+                        console.log(option.selected);
+                        list.push(option.textContent);
+                        console.log(option.innerHTML);
+                        console.log(option.textContent);
+                    }
+                }
+                console.log(list);
+                p.textContent = '선택: '+list.join(',');
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

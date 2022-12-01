@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS 스타일 확인</title>
+</head>
+<body>
+    <h1 style="font-weight: bold; text-align: end;">cssText의 속성 알아보기</h1>
+    <button>속성 넣기 버튼</button>
+    <button>속성 반환 버튼</button>
+    <p></p>
+
+
+
+
+    <script>
+        // document.addEventListener("click",()=>{
+        //     let h1 = document.getElementsByTagName('h1');    
+        //     let p = document.getElementsByTagName('p');    
+        //     p[0].innerHTML = h1.style.cssText;
+        // })
+        let h1 = document.getElementsByTagName('h1');    
+        let p = document.getElementsByTagName('p');    
+        let button = document.querySelectorAll('button');
+
+        button[0].addEventListener("click",()=>{
+            h1[0].style.cssText = "color: rgb(68, 191, 191); font-size:2em; text-decoration: underline;";
+        })
+
+        button[1].addEventListener("click",()=>{
+            p[0].innerHTML = h1[0].style.cssText;
+        })
+    </script>
+</body>
+</html>

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <script>
         document.addEventListener("DOMContentLoaded",()=>{
-            const input = document.getElementById('doll');
+            const input = document.getElementsByClassName('doll');
             // const button = document.createElement('button');
             const button = document.getElementById('b1');
             const p = document.getElementsByTagName('p');
@@ -18,11 +18,11 @@
 
                 if(isNaN(dollar)){
                     // 숫자가 아닌 것을 판별한다.
-                    p.textContent = '숫자를 입력하세요.';
+                    p[0].textContent = '숫자를 입력하세요.';
                     return; // 조기 종료.
                 }
                 let sum = dollar*won;
-                p.textContent = sum.toLocaleString("ko-KR")+'원';
+                p[0].textContent = sum.toLocaleString("ko-KR")+'원';
                 
             })
         })
@@ -40,11 +40,11 @@
           </ul>
         </header>
       </div>
-    <input type="text" id="doll">
-    <form class="form-floating">
-        <input type="text" class="form-control" id="floatingInputValue" placeholder="name@example.com">
+      <form class="form-floating" style="width: 50%; height:100%">
+        <input type="text" class="form-control doll" id="floatingInputValue" placeholder="name@example.com">
+        <span class="badge bg-secondary" style="background-color: blue;">New</span>
         <label for="floatingInputValue">환율값을 입력하시오.</label>
-    </form>
+      </form>
     <button id="b1" type="button" class="btn btn-outline-primary">계산하기</button>
     <p></p>
     <!-- <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
