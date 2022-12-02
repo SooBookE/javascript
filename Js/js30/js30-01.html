@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>구글 단위 변환 프로그램</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            /* 뼈대 */
+            const div = document.createElement("div");
+            const input1 = document.createElement("input");
+            const select1 = document.createElement("select");
+            const input2 = document.createElement("input");
+            const select2 = document.createElement("select");
+
+            document.body.appendChild(div).append(input1, select1, '=', input2, select2);
+            
+            const oMenu = ['킬로미터', '미터', '센티미터', '밀리미터', '마이크로미터'];
+            for(let menu of oMenu){
+                let option = document.createElement("option");
+                select1.appendChild(option);
+                option.innerHTML = menu;
+            }
+            for(let menu of oMenu){
+                let option = document.createElement("option");
+                select2.appendChild(option);
+                option.innerHTML = menu;
+            }
+            /* //뼈대 */
+            
+
+
+
+
+
+
+            /* 기능 넣기 */
+            const picker = document.querySelectorAll('input');
+            
+            let index1 = 0;
+            let index2 = 0;
+            // 각각 인풋의 인덱스.
+
+            const multiple = [1,1000,100000,100000000,100000000000];
+            // 배수 배열.
+            
+            
+            select1.addEventListener("change",(event)=>{
+                const options = event.currentTarget.options;
+                index1 = options.selectedIndex;
+                for(let i=0 ; i<options.length ; i++){
+                    
+                    if(index1==i){
+                        picker[0].addEventListener('keyup',()=>{
+                            let trans_v1=Number(picker[0].value);
+                            // 변수들은 각각의 input의 입력값이다.
+    
+                            if(isNaN(trans_v1)){
+                                picker[1].setAttribute('value','숫자를 입력하세요.');            
+                                return;               
+                            }
+    
+                            for(let j=0 ; j<multiple.length ; j++){
+                                if(index2==j){
+                                    picker[1].setAttribute('value',picker[0].value*multiple[j]/multiple[i]);
+                                }
+                            }
+                        })
+                    }
+                }
+            });
+            select2.addEventListener("change",(event)=>{
+                const options = event.currentTarget.options;
+                index2 = options.selectedIndex;
+                for(let i=0 ; i<options.length ; i++){
+                    
+                    if(index2==i){
+                        picker[1].addEventListener('keyup',()=>{
+                            let trans_v2=Number(picker[1].value);
+                            // 변수들은 각각의 input의 입력값이다.
+    
+                            if(isNaN(trans_v2)){
+                                picker[0].setAttribute('value','숫자를 입력하세요.');            
+                                return;               
+                            }
+    
+                            for(let j=0 ; j<multiple.length ; j++){
+                                if(index1==j){
+                                    picker[0].setAttribute('value',picker[1].value*multiple[j]/multiple[i]);
+                                }
+                            }
+                        })
+                    }
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
