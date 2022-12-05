@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>347p 예제</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            // 체크 상태일 때만 타이머를 증가시키는 프로그램.
+            // 체크 상태 확인 후 setInterval()/clearInterval() 활성화.
+            const input = document.createElement("input");
+            const span = document.createElement("span");
+            const h1 = document.createElement("h1");
+
+            document.body.append(input, span, h1);
+
+            input.setAttribute("type", "checkbox");
+            span.textContent = '타이머 활성화';
+
+
+            let count = 0;
+            let id = function(){};
+            input.addEventListener("change",(e)=>{
+                if(e.currentTarget.checked){
+                    id=setInterval(()=>{
+                        count++;
+                        h1.textContent = count+'초';
+                    },1000)
+                }else{
+                    clearInterval(id);
+                }
+                
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

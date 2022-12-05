@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>소수점의 사기</title>
+</head>
+<body>
+    <script>
+        let a = 0.1;
+        let b = 0.2;
+        let c = a + b;
+
+        console.log(c);
+        // 0.30000000000000004 결과가 이렇게 나온다.
+        // 모든 언어에서 이런 오류가 나타난다.
+
+        let aa = 0;
+        for(let i=0 ; i<100 ; i++ ){
+            aa += 0.1;
+        }
+        console.log(aa);
+        // 9.99999999999998 결과가 이렇게 나온다.
+
+        // parseInt Math.ㅇㄹㄹ 등을 쓰거나
+        // 서버의 정확한 소수점 값을 사용하거나,
+        // 소수점까지 계산 가능한 대용량의 단위?를 쓰거나..
+    </script>
+</body>
+</html>

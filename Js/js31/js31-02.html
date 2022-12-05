@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>체크일 때 링크 활성화</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const input = document.createElement("input");
+            const span = document.createElement("span");
+            const br = document.createElement("br");
+            const a = document.createElement("a");
+            const div = document.createElement("div");
+            document.body.append(input,span,br);
+
+            input.setAttribute("type","checkbox");
+            a.setAttribute("href","https://naver.com");
+            span.textContent = '링크 활성화';
+
+
+            /* 기능 넣기 */
+            
+            /* 방법1. 없애기. 
+            태그 자체를 없앤다.*/
+            
+            // input.addEventListener('change',(e)=>{
+            //     if(e.target.checked){
+            //         document.body.appendChild(a);
+            //         a.textContent = '네이버 이동';
+            //         // 체크하면 body에 입력+텍스트 입력.
+            //     }else{
+            //         document.body.removeChild(a);
+            //         // 체크해제하면 요소 제거.
+            //     }
+            
+            // })
+                    
+                    
+                    
+            /* 방법2. display = none 
+            공간도 지워둔다.*/
+            // document.body.appendChild(a);
+            // document.body.appendChild(div);
+            // div.textContent = '확인용 요소.'
+            // a.textContent = '네이버 이동';
+            // a.style.display = 'none';
+            // input.addEventListener('change',(e)=>{
+            //     if(e.target.checked){
+            //         a.style.display = '';
+            //         // 체크하면 display = 'none'제거.
+            //     }else{
+            //         a.style.display = 'none';
+            //         // 체크해제하면 display = 'none' 활성화.
+            //     }
+            
+            // })
+            
+            /* 방법3. visibilty = hidden 
+            공간은 남겨둔다.*/
+            document.body.appendChild(a);
+            document.body.appendChild(div);
+            div.textContent = '확인용 요소.'
+            a.textContent = '네이버 이동';
+            a.style.visibility = 'hidden';
+            input.addEventListener('change',(e)=>{
+                if(e.currentTarget.checked){
+                    a.style.visibility = '';
+                    // 체크하면 visibility='hidden'제거.
+                }else{
+                    a.style.visibility = 'hidden';
+                    // 체크해제하면 visibility='hidden' 활성화.
+                }
+            })
+            // target은 이벤트가 발생한 부분 체크.
+            // currentTarget은 현재 이벤트 내부 체크..?
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

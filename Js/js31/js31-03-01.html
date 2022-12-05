@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>체크박스 활용하기(강사님.ver)</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const button = document.createElement("button");
+            const input = document.createElement("input");
+            const span = document.createElement("span");
+            const h1 = document.createElement("h1");
+
+            document.body.append(input, span, h1, button);
+            input.setAttribute("type","checkbox");
+            span.append('타이머 활성화');
+            button.append('초기화');
+            h1.append('0초');
+            // append로 넣어도 가능하네?
+
+            // 체크박스 누르면 1초 타이머 활성화.
+            // 초기화 누르면 체크박스 해제, 타이머 초기화.
+
+            /* 내 풀이 */
+            // let count = 0;
+            // const event = function (e){
+                //     if(e.currentTarget.checked){
+                    //         timerId=setInterval(_=>{count++;h1.innerHTML=count+'초'},1000);
+            //     }else if(e.currentTarget.checked==false){
+                //         clearInterval(timerId);
+                //     }
+                // }
+                // let timerId = function(){};
+                
+                // input.addEventListener("change",event)
+                // button.addEventListener("click",()=>{
+                    //     input.checked = false;
+                    //     count = 0;
+                    //     h1.innerHTML = '0초'
+                    //     clearInterval(timerId);
+            // })
+            /* //내 풀이 */
+
+
+            /*  강사님 풀이 */
+            let [timer,id]=[0,0];
+            input.addEventListener("change",(event)=>{
+                if(event.currentTarget.checked){
+                    id = setInterval(()=>{
+                        timer += 1;
+                        h1.innerHTML = timer+'초';
+                    },1000)
+                }else{
+                    clearInterval(id);
+                }
+            })
+            // 초기화는 알아서 하기. 내일 마저 마무리하기.
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
