@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스 활용하기</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+            const button = document.createElement("button");
+            const input = document.createElement("input");
+            const span = document.createElement("span");
+            const h1 = document.createElement("h1");
+            document.body.append(input,span,h1,button)
+            input.setAttribute('type', 'checkbox');
+            span.append('타이머활성화')
+            button.append('초기화')
+            h1.innerHTML = '0 초'
+
+            let [timer,id] =[0,0]
+            input.addEventListener('change',(event)=>{
+                if(event.currentTarget.checked){
+                    id = setInterval(()=>{
+                        timer += 1;
+                        h1.innerHTML = timer+'초'
+                    },1000)
+                }else{
+                    clearInterval(id)
+                }
+            }
+            )
+            button.addEventListener('click',(event)=>{
+                clearInterval(id) // 타이머 초기화
+                timer = 0
+                h1.innerHTML = timer+'초'
+                input.checked = false
+            })
+        })
+        /* 어제 마지막 타이머. 초기화까지 풀이 완료 */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

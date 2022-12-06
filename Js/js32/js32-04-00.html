@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>업그레이드!</title>
+    <script>
+        /* 각각 한 줄마다 키 값을 입력하고, 추가하기 옆 제거하기 누르면
+        체크된 모든 목록들을 제거하는 기능 부여해보기!*/
+        document.addEventListener("DOMContentLoaded",()=>{
+            const h1 = document.createElement("h1");
+            const input = document.createElement("input");
+            const adBtn = document.createElement("button");
+            const clBtn = document.createElement("button");
+            const div = document.createElement("div");
+
+            document.body.append(h1, input, adBtn, clBtn, div);
+
+            h1.innerHTML = '할 일 목록';
+            adBtn.innerHTML = '추가하기';
+            clBtn.innerHTML = 'checked 제거하기';
+
+
+            let key = 0;
+            const arr = [];
+
+            function insert(){
+                const checkbox = document.createElement("input");
+                const span = document.createElement("span");
+                const button = document.createElement("button");
+                const br = document.createElement("br");
+
+                document.body.append(checkbox, span, button, br);
+
+                checkbox.setAttribute("type","checkbox");
+                checkbox.setAttribute("data-key",key);
+
+                span.innerHTML = input.value;
+                button.innerHTML = '제거하기';
+
+                function del(){
+                    document.body.removeChild(checkbox);
+                    document.body.removeChild(span);
+                    document.body.removeChild(button);
+                    document.body.removeChild(br);
+                }
+                
+                const kEy = key;
+                checkbox.addEventListener("change",(e)=>{
+                    const status = e.currentTarget.checked;
+                    span.style.textDecoration=status?"line-through":"";
+                    status?button.addEventListener("click",del):button.removeEventListener("click",del);
+                    status?arr.push(kEy):arr.splice(arr.indexOf(kEy),1);
+                    // console.log(arr);
+                })
+                
+                key++;
+            }
+
+            
+            adBtn.addEventListener("click",insert);
+            clBtn.addEventListener("click",()=>{
+                let picker = document.querySelectorAll('input');
+                function del(){
+                    document.body.removeChild(picker[0].data-key==arr.indexOf(data-key));
+                    document.body.removeChild(span);
+                    document.body.removeChild(button);
+                    document.body.removeChild(br);
+                }
+                del();
+            })
+        })
+        // 호에에에에에에에에에에에엥에에에
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

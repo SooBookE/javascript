@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>책 내용들 혼자서 해보기</title>
+    <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            /* 348p 라디오 버튼 사용해보기 + typeit */
+            
+            // const h3f = document.createElement("h3");
+            // const h3l = document.createElement("h3");
+            // const hr = document.createElement("hr");
+            
+            // const animal = ["강아지","고양이","햄스터","앵무새","다람쥐"];
+            // document.body.appendChild(h3f).innerHTML = '# 좋아하는 애완동물을 선택해주세요.';
+            // new TypeIt(h3f).pause(1000).delete(7,{delay: 1000}).type('선택해!!').go();
+            
+            // for(const ani of animal){
+                //     const input = document.createElement("input");
+                //     const span = document.createElement("span");
+                
+                //     document.body.append(input,span);
+                //     input.type = "radio";
+                //     input.name = 'pet';
+                //     input.value = ani;
+                //     span.innerHTML = ani;
+                
+                //     input.addEventListener("change",(event)=>{
+                    //         const choice = event.currentTarget.value;
+                    //         new TypeIt(h3l).type('좋아하는 동물은 '+choice+'군요!!').pause(2000).empty().go();
+                    //     })
+            // }
+            // document.body.append(hr, h3l);
+            // h3l.setAttribute("id","output");
+
+            /* //348p 라디오 버튼 사용해보기 + typeit */
+
+
+
+            /* 350p 이미지 마우스 우클릭 막기 해보기. */
+
+            // const imgs = document.createElement("img");
+            // document.body.appendChild(imgs);
+            // imgs.setAttribute("src","https://placekitten.com/300/300");
+
+            // imgs.addEventListener('contextmenu',(e)=>{
+            //     e.preventDefault();
+            // })
+
+            /* //350p 이미지 마우스 우클릭 막기 해보기. */
+
+
+
+
+
+
+            /* 351p 체크 때만 링크 활성화하기 */
+
+            const input = document.createElement("input");
+            const span = document.createElement("span");
+            const br = document.createElement("br");
+            const a = document.createElement("a");
+            let status = false;
+
+            document.body.append(input, span, br, a);
+
+            input.setAttribute("type","checkbox");
+            a.setAttribute("href","https://naver.com");
+
+            span.innerHTML = '링크 활성화';
+            a.innerHTML = '네이버 링크';
+
+            input.addEventListener("change",(event)=>{
+                status = event.currentTarget.checked;
+            })
+            a.addEventListener('click',(event)=>{
+                if(!status){
+                    event.preventDefault();
+                }
+            })
+
+            /* //351p 체크 때만 링크 활성화하기 */
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
