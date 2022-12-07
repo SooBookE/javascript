@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>문제 끝판왕</title>
+    <script>
+        /* 
+        각자의 todo list를 localStorage에 저장할 수 있도록 만들어라!!
+         */
+
+
+         /* todo-list */
+         document.addEventListener("DOMContentLoaded",()=>{
+             const h1 = document.createElement("h1");
+             const input = document.createElement("input");
+             const button = document.createElement("button");
+             const div = document.createElement("div");
+             
+             document.body.append(h1, input, button, div);
+             
+             input.setAttribute("id","todo");
+             button.setAttribute("id","add-button");
+             div.setAttribute("id","todo-list");
+             h1.innerHTML = '할 일 목록';
+             button.innerHTML = '추가하기';
+
+
+             let arr = [];
+             
+             function auto(){
+                 const checkbox = document.createElement("input");
+                 const write = document.createElement('span');
+                 const clearButton = document.createElement("button");
+                 const br = document.createElement("br");
+
+                 input.value!=0?document.body.append(checkbox,write,clearButton,br):alert('다시 입력하세요.');
+                 
+                 checkbox.setAttribute("type","checkbox");
+                 write.innerHTML = input.value;
+                 clearButton.innerHTML = '제거하기';
+
+                 arr.push(input.value);
+                //  console.log(arr);
+                 localStorage.setItem("update",arr);
+                
+                function removing(){
+                    document.body.removeChild(checkbox);
+                    document.body.removeChild(write);
+                    document.body.removeChild(clearButton);
+                    document.body.removeChild(br);
+
+                    arr.splice(arr.indexOf(write.value),1);
+                    console.log(arr);
+                    localStorage.setItem("update",arr);
+                }
+                
+                checkbox.addEventListener("change",(event)=>{
+                    let state = event.currentTarget.checked;
+                    write.style.textDecoration=state?"line-through":"";
+                    state?clearButton.addEventListener("click",removing):clearButton.removeEventListener("click",removing);
+                })
+            }
+            button.addEventListener("click",auto);
+            /* //todo-list */
+        })
+        </script>
+</head>
+<body>
+    
+</body>
+</html>

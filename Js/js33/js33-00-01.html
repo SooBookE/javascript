@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>nullish coalescing(채-신 문법)</title>
+    <script>
+        function pt(text){
+            const pr = text ??  '값이 없어요. null이거나 undefined겠네요.';
+            // null이나 undefined이면 ?? 뒤의 내용을 실행.
+            console.log(pr);
+
+            /* 실행결과 */
+            // pt('pt') => pt
+            // pt(null) => '값이 없어요. null이거나 undefined겠네요.';
+            // pt(undefined) => '값이 없어요. null이거나 undefined겠네요.';
+
+            /* null과 undefined만 잡는다. */
+        }
+        
+        function ppt(text = 0){
+            // 초깃값을 설정해준다.
+            const pr = text;
+            console.log(pr);
+
+            /* 실행결과 */
+            // ppt('pt') => pt
+            // ppt() => 0;
+            // ppt(null) => null;
+            // pt(undefined) => 0;      // 초깃값이 튀어나온다.
+
+            /* null만 잡는다. */
+        }
+        
+        function ptt(text){
+            const pr = text || '값이 없대요.';
+            console.log(pr);
+            
+            /* 실행결과 */
+            // ptt(0) => '값이 없대요.';
+            // ptt(1) => 1;
+            // ptt(false) => '값이 없대요.';
+            // ppt(false) => false;
+            // pt(false) => false;
+
+            /* 웬만한 부정은 다 잡는다. */
+        }
+
+        function pptt(text){
+            const pr = text?.split(',');
+            console.log(pr);
+
+            // ?. => 옵셔널 체이닝....?
+            // 채신 문자이지만, 걍 문제 생겨도 undefined로만 넘겨버리는 문법...?
+        }
+        </script>
+</head>
+<body>
+    
+</body>
+</html>

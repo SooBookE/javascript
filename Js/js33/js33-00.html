@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>문제</title>
+    <script>
+        /* 어떠한 배열을 넣었을 때
+        ex) [3,4,5,6,7,8,3,5,7,8]
+        넣기만 하면, 중복되는 숫자를 제거해주는 함수를 작성해보라.
+
+        2개 이상 만들어보기. */
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            const arr = [3,4,5,6,7,8,1,2,3,4,5,6,7,8,3,4,5,6,7,8];
+            const arr2 = [...arr];
+            const arr3 = [...arr2];
+            let result=[];
+
+            // console.log(arr);
+            // console.log(arr2);
+            // console.log(arr3);
+            // 잘 복사되었는지 확인용.
+
+
+            /* 1. indexOf만 사용 */
+            // for로.
+
+            // for(let i=0; i<arr.length; i++){
+            //     if(result.indexOf(arr[i])==-1){
+            //         result.push(arr[i]);
+            //     }
+            // }
+            // console.log(result);
+            
+            // for of로.
+            
+            // for( const v of arr){
+            //     if(result.indexOf(v)==-1){
+            //         result.push(v);
+            //     }
+            // }
+            // console.log(result);
+
+
+            /* 2. filter()와 indexOf 사용 */
+
+            // result=arr2.filter((v,idx)=>{
+            //     return arr2.indexOf(v)===idx;
+            //     // indexOf는 맨 앞의 요소만 출력하기에
+            //     // 맨 앞 요소의 인덱스와 현재 인덱스가 일치해야지만 result에 입력한다.
+            // })
+            // console.log(result);
+
+
+            /* 3. reduce() 사용..? */
+            arr3.reduce((_,cur,idx)=>{
+                if(arr3.indexOf(cur)===idx){
+                    result.push(cur);
+                };
+            },0)
+            console.log(result);
+
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

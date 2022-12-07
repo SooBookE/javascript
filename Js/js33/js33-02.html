@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>로컬 스토리지 활용하기(책 357p)</title>
+    <script>
+        /* localStorage.getItem() 추출
+        setItem() 저장( JSON 형태로 )
+        removeItem() 특정 값 제거
+        clear() 모두 제거 */
+        document.addEventListener("DOMContentLoaded",()=>{
+            const p = document.createElement("p");
+            const button = document.createElement("button");
+            const input = document.createElement("input");
+
+            document.body.append(p,button,input);
+            button.textContent = "지우기";
+            input.setAttribute("type","text");
+
+            const saveValue = localStorage.getItem("inPut");
+            // 현재는 값이 없는 상태. 찾을 키만 입력.
+            if(saveValue){
+                // saveValue에 값이 있다면.
+                input.value = saveValue;
+                p.textContent = '이전 실행 때의 마지막 값은: '+saveValue;
+            }
+
+            input.addEventListener("keyup",(e)=>{
+                const value = e.currentTarget.value;
+                localStorage.setItem("inPut",value)
+                // 키와 값을 입력.
+            })
+            button.addEventListener("click",(e)=>{
+                localStorage.clear();
+                input.value = '';
+            })
+
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

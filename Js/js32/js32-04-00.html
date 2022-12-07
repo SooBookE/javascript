@@ -55,17 +55,21 @@
                 key++;
             }
 
+            let picker = document.querySelectorAll('input');
             
             adBtn.addEventListener("click",insert);
             clBtn.addEventListener("click",()=>{
-                let picker = document.querySelectorAll('input');
                 function del(){
-                    document.body.removeChild(picker[0].data-key==arr.indexOf(data-key));
-                    document.body.removeChild(span);
-                    document.body.removeChild(button);
-                    document.body.removeChild(br);
+                    if(picker[0].data-key==arr.indexOf(picker[0].data-key)){
+                        document.body.removeChild(picker[0]);
+
+                    }
+                    // document.body.removeChild(span);
+                    // document.body.removeChild(button);
+                    // document.body.removeChild(br);
                 }
                 del();
+                console.log(picker);
             })
         })
         // 호에에에에에에에에에에에엥에에에

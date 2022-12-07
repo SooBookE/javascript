@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>책355p</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const h1 = document.createElement("h1");
+            const textarea = document.createElement("textarea");
+
+            document.body.append(h1, textarea);
+
+            let timerId
+
+            textarea.addEventListener("focus",(e)=>{
+                timerId = setInterval(()=>{
+                    const length = textarea.value.length;
+                    h1.textContent = '글자 수: '+length;
+                }, 50);
+            })
+            textarea.addEventListener("blur",(e)=>{
+                clearInterval(timerId);
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

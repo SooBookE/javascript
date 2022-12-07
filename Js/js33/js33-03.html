@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>문제</title>
+    <script>
+        /* 배열이 기록. 배열에 요소 입력. push(btn 1)
+        배열에 요소 삭제. pop.(btn 2)
+        모든 배열 요소 삭제(btn 3)
+        배열 중복 요소 제거(btn 4) 
+        로컬스토리지에 저장되고, 삭제되도록 하라. f5를 눌러도 값이 사라지지 않는다. */
+        document.addEventListener("DOMContentLoaded",()=>{
+            const input = document.createElement("input");
+            const btnAdd = document.createElement("button");
+            const btnDel = document.createElement("button");
+            const btnClear = document.createElement("button");
+            const btnSelDel = document.createElement("button");
+
+            document.body.append(input,btnAdd,btnDel,btnClear,btnSelDel);
+
+            input.setAttribute("type","text");
+            btnAdd.textContent="배열에 입력하기";
+            btnDel.textContent="마지막 요소 제거하기";
+            btnClear.textContent="모든 요소 제거하기";
+            btnSelDel.textContent="해당 요소 제거하기";
+
+
+
+
+
+
+            let arr = [];
+            let save = localStorage.getItem("save")??0;
+            // console.log(save);
+            
+            save==0?arr.length=0:save.split(",");
+            if(save.length>0){
+                arr = [...save];
+            }
+            
+            btnAdd.addEventListener("click",()=>{
+                arr.push(input.value);
+                // console.log(arr);
+                
+                localStorage.setItem("save",arr);
+            })
+            btnDel.addEventListener("click",()=>{
+                arr.pop();
+                // console.log(arr);
+                
+                localStorage.setItem("save",arr);
+            })
+            btnClear.addEventListener("click",()=>{
+                arr=[];
+                // console.log(arr);
+
+                localStorage.setItem("save",arr);
+            })
+            btnSelDel.addEventListener("click",()=>{
+                while(1){
+                    arr.splice(arr.indexOf(input.value),1);
+                    if(arr.indexOf(input.value)==-1){
+                        break;
+                    }
+                    // console.log(arr);
+                }
+                localStorage.setItem("save",arr);
+                
+            })
+            
+
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
