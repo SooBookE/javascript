@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>try catch 상황4</title>
+</head>
+<body>
+    <script>
+        console.log('=====프로그램의 시작=====');
+        function fn1(){
+            console.log('fn1의 시작');
+            try{
+                fn2();
+            }catch(e){
+                console.log(e);
+            } // 2) 이렇게 트라이/캐치로 잡아주면 끝까지 실행해주고, 에러도 잡아준다.
+            console.log('fn1의 끝');
+        }
+        function fn2(){
+            console.log('fn2의 시작');
+            throw(new Error('고의 에러')); // 에러 종류 디테일 살리기.
+            // throw('고의 에러'); // 1) 이후에 발생하는 바깥의 구문도 정지.
+            // 어디서 발생했는지 알기 힘든 문제가 발생한다.
+            console.log('fn2의 끝');
+        }
+
+        fn1();
+
+        // try{
+        //     fn1();
+        // }catch(e){
+        //     console.log(e);
+        // }
+        // 너무 바깥에 설치해주면, 중도 실행이 덜 되므로,
+        // 트라이/캐치는 최대한 오류 발생지점 쪽으로 배치시켜야 한다.
+       
+        console.log('=====프로그램의 끝=====');
+    </script>
+</body>
+</html>

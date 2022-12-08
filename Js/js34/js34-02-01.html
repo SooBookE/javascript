@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>예외처리2</title>
+</head>
+<body>
+    <script>
+        function test(object){
+            console.log(object); // 1
+            console.log(object.a); // 2
+            console.log(object.b); // 3
+            console.log(object.a+object.b); // 4
+            /* 예측 결과 
+            1. 그 값.
+            2. undefined
+            3. undefined
+            4. NaN*/
+        }
+        // test({}) 입력 시, 예측대로 출력.
+        function test2(object){
+            if(object.a !== undefined && object.b !== undefined){
+                console.log(object.a + object.b)
+            }else{
+                throw(new Error('a속성과 b속성 내용이 없습니다.'));
+
+                // throw(new SyntaxError('문법 오류.'));
+                // throw(new ReferenceError('참조 오류.'));
+                /* 무슨 에러인지 상세한 설명이 필요하면, 위와 같은 에러 알림들도
+                사용할 수 있다. */
+            }
+        }
+        // test({}) 입력 시, 
+            // Uncaught Error: a속성과 b속성 내용이 없습니다.
+            // at test2 (js34-02-01.html:24:23)
+            // at <anonymous>:1:1
+        // 를 출력하며, undefined나 NaN 등의 값을 일절 내뱉지 않는다.
+    </script>
+</body>
+</html>

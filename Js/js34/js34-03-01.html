@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>try catch 상황2</title>
+</head>
+<body>
+    <script>
+        try{
+            console.log('try 블록이 시작 됨');
+            if(confirm('에러를 발생할까요?')){
+                what(); // 존재하지 않는 함수를 실행시켜서, 에러 발생.
+            }
+            // confirm yes면 catch 실행. no면 catch 무시.
+        }
+        catch(e){
+            console.log('catch 에러를 잡음: '+e);
+        }
+        finally{
+            console.log('finally. 연산 끝까지 종료.');
+        }
+    </script>
+</body>
+</html>

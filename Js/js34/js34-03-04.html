@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>try catch 최-종</title>
+</head>
+<body>
+    <script>
+        /* 재귀함수(함수 안에 똑같은 함수를 넣어 반복.)/팩토리얼. */
+        
+        let num = +/*숫자 만들기.0+도 가능.*/prompt('양의 정수를 입력하세요.',35/* 초깃값 */)/* *1해도 숫자로 변환 가능. */
+        let diff, result;
+
+        function fib(n){
+                if(n<0 || Math.trunc(n)/* 소수를 제거하고 정수로 받는다. */ != n){
+                    throw(new Error('음수나 정수가 아닌 값은 처리 못한다.'));
+                }
+                return n<=1?n:fib(n-1)+fib(n-2)/* 삼항연산자로 재귀함수 사용. */
+            }
+
+        let start = Date.now();
+
+        try{
+            result = fib(num);
+        }catch(e){
+            result = e;
+        }finally{
+            diff = Date.now()/* 끝 순간 */ - start/* 첫 순간 */;
+            alert(result||'에러 발생');
+            alert('연산시간: '+diff+'ms');
+        }
+    </script>
+</body>
+</html>

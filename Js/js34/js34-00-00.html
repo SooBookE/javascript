@@ -25,6 +25,9 @@
 
 
              let arr = [];
+             /* 키 */
+            //  let key = 0;
+            /* //키 */
              
              function auto(){
                  const checkbox = document.createElement("input");
@@ -32,23 +35,45 @@
                  const clearButton = document.createElement("button");
                  const br = document.createElement("br");
 
+                 /* 키 */
+                //  const kEy = key;
+                /* //키 */
+
                  input.value!=0?document.body.append(checkbox,write,clearButton,br):alert('다시 입력하세요.');
                  
+                 /* 키 */
+                //  write.setAttribute("data-key",kEy);
+                /* //키 */
                  checkbox.setAttribute("type","checkbox");
                  write.innerHTML = input.value;
                  clearButton.innerHTML = '제거하기';
 
                  arr.push(input.value);
-                //  console.log(arr);
+                 console.log(arr);
                  localStorage.setItem("update",arr);
                 
                 function removing(){
+                    /* 키 */
+                    // arr.splice(arr.indexOf(document.querySelector(`[data-key="${kEy}"]`).innerHTML),1);
+                    // console.log(document.querySelector(`[data-key="${kEy}"]`));
+                    /* //키 */
+
+                    /* 키NO */
+                    // arr.splice(arr.indexOf(write.innerHTML),1);
+                    /* //키NO. indexOf의 특성으로 문제 발생. */
+                    
+                    // arr=arr.filter((v,i)=>{
+                    //     return (arr.indexOf(write.innerHTML)!=i||v!=write.innerHTML)!=(arr.indexOf(write.innerHTML)==i&&v!=write.innerHTML);
+                    // })
+                    arr=arr.filter((v,i)=>{
+                        return v==write.innerHTML?;
+                    })
+                    
                     document.body.removeChild(checkbox);
                     document.body.removeChild(write);
                     document.body.removeChild(clearButton);
                     document.body.removeChild(br);
-
-                    arr.splice(arr.indexOf(write.value),1);
+                    
                     console.log(arr);
                     localStorage.setItem("update",arr);
                 }
@@ -58,6 +83,9 @@
                     write.style.textDecoration=state?"line-through":"";
                     state?clearButton.addEventListener("click",removing):clearButton.removeEventListener("click",removing);
                 })
+                /* 키 */
+                // key++;
+                /* //키 */
             }
             button.addEventListener("click",auto);
             /* //todo-list */

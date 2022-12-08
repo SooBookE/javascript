@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>try catch 상황1</title>
+</head>
+<body>
+    <script>
+        try{
+            JSON.parse('{잘못된 형식의 JSON}');
+            // 인위적 에러 만들기.
+        }
+        catch(e){
+            console.log(e);
+            console.log(e.name);
+            // e의 키.
+            console.log(e.message);
+            // e의 값.
+        }
+        finally{}
+    </script>
+</body>
+</html>

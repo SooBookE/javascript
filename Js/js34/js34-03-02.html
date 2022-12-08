@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>try catch 상황3</title>
+</head>
+<body>
+    <script>
+        try{
+            goodMorning();
+            throw('점심시간');
+
+            console.log('try 마지막 줄.');
+            // throw로 인해 무시.
+        }
+        catch(e){
+            console.log('에러 발생: '+e);
+        }
+        finally{
+            console.log('무족권 실행.');
+        }
+
+        function goodMorning(){
+            console.log('굿모닝.');
+        }
+    </script>
+</body>
+</html>

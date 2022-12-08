@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>로컬스토리지 배열 응용!!!!!!+ver2(기능추가)</title>
+    <style>
+        button{
+            margin-right: 5px;
+        }
+    </style>
+    <script>
+        /* 기능 추가하기
+        1. 엔터치면 추가 기능도 되게하라.
+        2. 중복제거에 기능 추가: 빈칸 요소도 없애기.
+        3. 요소모두삭제: 팝업으로 삭제할까요? 라고 확인창 뜨기.(yes는 삭제, no는 취소) */
+        document.addEventListener("DOMContentLoaded",()=>{
+            const p1 = document.createElement("p");
+            const p2 = document.createElement("p");
+            const input = document.createElement("input");
+            const add = document.createElement("button");
+            const pop = document.createElement("button");
+            const del = document.createElement("button");
+            const fix = document.createElement("button");
+            const sort = document.createElement("button");
+
+            document.body.append(input,add,pop,fix,sort,del,p1,p2);
+
+            add.innerHTML = '추가';
+            pop.innerHTML = '제거';
+            del.innerHTML = '요소모두삭제';
+            fix.innerHTML = '중복제거';
+            sort.innerHTML = '정렬';
+
+            input.type = "text";
+
+            let ready = localStorage.getItem("mem")??0;
+            // let ready = localStorage.getItem("mem");
+            // mem을 크롬에서 지우면 null 값을 반환한다.
+            // 따라서 ??을 이용해 null이면 0을 넣도록 조치한다.
+
+            let arr = [];
+            ready==0?arr=[]:arr=ready.split(",");// 문자를 ","를 기준으로 배열로 변환한다.
+            // arr.length=0 써도 된다.
+
+            let vin = '';
+            p2.innerHTML = arr;
+
+            input.addEventListener("keyup",(e)=>{
+                vin = e.currentTarget.value;
+            })
+
+            input.addEventListener("keydown",(e)=>{
+                const ENTER = 13;
+                if(ENTER == e.keyCode){
+                    insert();
+                }
+                // code로 받으면 Enter라는 글자로 입력받고, keyCode로 받으면
+                // 해당 키의 숫자코드값을 받을 수 있다.
+            })
+
+            function insert(){
+                if(vin){
+                    arr.push(vin);
+                    p1.innerHTML = vin +'를 추가했습니다.';
+                    p2.innerHTML = arr;
+                    vin = '';
+                    input.value = vin;
+                }else{
+                    p1.innerHTML = "값을 넣으세요.";
+                }
+                localStorage.setItem("mem",arr);
+            }
+
+            add.addEventListener("click",insert);
+            
+            pop.addEventListener("click",(e)=>{
+                const pp = arr.pop();
+                vin = "";
+                input.value = vin;
+                p1.innerHTML = pp? pp+' 제거했습니다.':'배열이 비었습니다.';
+                p2.innerHTML = arr;
+                localStorage.setItem("mem",arr);
+            })
+            
+            del.addEventListener("click",(e)=>{
+                let real = confirm("정말 모두 삭제할까요?");
+                if(real){
+                    // arr = []; 1번 방법.
+                    arr.length = 0; // 2번 방법.
+                    vin = '';
+                    input.value = vin;
+                    p1.innerHTML = '전부 삭제 완료';
+                    p2.innerHTML = '비었음.'
+                    localStorage.setItem("mem",arr);         
+                }
+            })
+            
+            fix.addEventListener("click",(e)=>{
+                /* 고대로부터 내려온 기능.
+                Set() : 집합 같은 개념.
+                안에 있는 배열은 무조건 중복을 제거한다. */
+                
+                const arrS = new Set(arr); // 유사배열.
+                arr = [...arrS]; // 유사배열을 배열로 고쳐넣기.
+                // Array.from(arrS)로 만들어줘도 된다.
+                while(1){
+                    arr.splice(arr.indexOf([]),1);
+                    if(arr.indexOf([])==-1){
+                        break;
+                    }
+                    // arr.splice(arr.indexOf(''),1);
+                    // arr.splice(arr.indexOf(' '),1);
+                    // arr.splice(arr.indexOf('   '),1);
+                    // if(arr.indexOf('')||arr.indexOf(' ')||arr.indexOf('   ')==-1){
+                    //     break;
+                    // }
+                }
+
+                /* 강사님 방식 */
+                // const starr = arr.join(',');
+                // // 글자로 바꾸기.
+                // let arr0 = starr.replace(' ','');
+                // // 바꾼 글자에서 띄어쓰기 제거.
+                // arr = arr0.split(',');
+                // 글자를 ','를 기준으로 배열로 치환.
+                //
+                // ※잘 안 되네.※
+
+                /* 강사님의 다른 방식 */
+                // arr = arr.filter((v)=>{
+                //     return (v!=''&&v!=' '&&v!='   '&&v!=null&&v!=undefined);
+                //     // 이 조건이 아닌 요소들만 arr에 대입한다.
+                // })
+
+
+                vin = '';
+                input.value = vin;
+                p1.innerHTML = '중복 제거 완료.';
+                p2.innerHTML = arr;
+                localStorage.setItem("mem",arr);
+            })
+            
+            sort.addEventListener("click",(e)=>{
+                arr.sort((a,b)=>{return a-b});
+                vin = '';
+                input.value = vin;
+                p1.innerHTML = '정리 완료.';
+                p2.innerHTML = arr;
+                localStorage.setItem("mem",arr);
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
