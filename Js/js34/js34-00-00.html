@@ -10,54 +10,71 @@
 
          /* todo-list */
          document.addEventListener("DOMContentLoaded",()=>{
-             const h1 = document.createElement("h1");
-             const input = document.createElement("input");
-             const button = document.createElement("button");
-             const div = document.createElement("div");
+            const h1 = document.createElement("h1");
+            const input = document.createElement("input");
+            const button = document.createElement("button");
+            const div = document.createElement("div");
              
-             document.body.append(h1, input, button, div);
+            document.body.append(h1, input, button, div);
              
-             input.setAttribute("id","todo");
-             button.setAttribute("id","add-button");
-             div.setAttribute("id","todo-list");
-             h1.innerHTML = '할 일 목록';
-             button.innerHTML = '추가하기';
+            input.setAttribute("id","todo");
+            button.setAttribute("id","add-button");
+            div.setAttribute("id","todo-list");
+            h1.innerHTML = '할 일 목록';
+            button.innerHTML = '추가하기';
 
 
-             let arr = [];
-             /* 키 */
+            let arr = [];
+            let update = localStorage.getItem("update")??0;
+            
+            update==0?arr.length=0:update.split(",");
+            if(update.length>0){
+                arr = [...update];
+            }
+            
+            
+            let idxArr = [];/*최종*/
+
+            /* 키 */
             //  let key = 0;
             /* //키 */
-             
-             function auto(){
-                 const checkbox = document.createElement("input");
-                 const write = document.createElement('span');
-                 const clearButton = document.createElement("button");
-                 const br = document.createElement("br");
 
-                 /* 키 */
+            let index = 0;/*최종*/
+             
+            function auto(){
+                const checkbox = document.createElement("input");
+                const write = document.createElement('span');
+                const clearButton = document.createElement("button");
+                const br = document.createElement("br");
+
+                /* 키 */
                 //  const kEy = key;
                 /* //키 */
 
-                 input.value!=0?document.body.append(checkbox,write,clearButton,br):alert('다시 입력하세요.');
+                input.value!=0?document.body.append(checkbox,write,clearButton,br):alert('다시 입력하세요.');
                  
-                 /* 키 */
+                /* 키 */
                 //  write.setAttribute("data-key",kEy);
                 /* //키 */
-                 checkbox.setAttribute("type","checkbox");
-                 write.innerHTML = input.value;
-                 clearButton.innerHTML = '제거하기';
 
-                 arr.push(input.value);
-                 console.log(arr);
-                 localStorage.setItem("update",arr);
-                
+                checkbox.setAttribute("type","checkbox");
+                write.innerHTML = input.value;
+                clearButton.innerHTML = '제거하기';
+
+                arr.push(input.value);
+                //  console.log(arr);
+                localStorage.setItem("update",arr);
+                 
+                let inDex = index;/*최종*/
+                idxArr.push(inDex);/*최종*/
+                //  console.log(inDex);
+                //  console.log(idxArr);
                 function removing(){
                     /* 키 */
                     // arr.splice(arr.indexOf(document.querySelector(`[data-key="${kEy}"]`).innerHTML),1);
                     // console.log(document.querySelector(`[data-key="${kEy}"]`));
                     /* //키 */
-
+                     
                     /* 키NO */
                     // arr.splice(arr.indexOf(write.innerHTML),1);
                     /* //키NO. indexOf의 특성으로 문제 발생. */
@@ -65,29 +82,43 @@
                     // arr=arr.filter((v,i)=>{
                     //     return (arr.indexOf(write.innerHTML)!=i||v!=write.innerHTML)!=(arr.indexOf(write.innerHTML)==i&&v!=write.innerHTML);
                     // })
-                    arr=arr.filter((v,i)=>{
-                        return v==write.innerHTML?;
-                    })
+                        
+                    /* 키NO-최종 */
+                    arr=arr.filter((_,i)=>{
+                        return idxArr.indexOf(inDex)!=i;    
+                    })/*최종*/
+                    // console.log(idxArr);
+                    idxArr.splice(idxArr.indexOf(inDex),1);/*최종*/                    
+                    /* //키NO-최종 */
                     
                     document.body.removeChild(checkbox);
                     document.body.removeChild(write);
                     document.body.removeChild(clearButton);
                     document.body.removeChild(br);
                     
-                    console.log(arr);
+                    // console.log(arr);
                     localStorage.setItem("update",arr);
-                }
+                 }
                 
                 checkbox.addEventListener("change",(event)=>{
                     let state = event.currentTarget.checked;
                     write.style.textDecoration=state?"line-through":"";
                     state?clearButton.addEventListener("click",removing):clearButton.removeEventListener("click",removing);
                 })
+                index++;/*최종*/
+
+                input.value='';
+
                 /* 키 */
                 // key++;
                 /* //키 */
             }
             button.addEventListener("click",auto);
+            input.addEventListener("keyup",(e)=>{
+                if(e.key=='Enter'){
+                    auto();
+                }
+            });
             /* //todo-list */
         })
         </script>
