@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>클래스의 고급기능(클래스 내부 접근 방지.)</title>
+</head>
+<body>
+    <script>
+        class Square extends Rectangle{
+            #length
+            constructor(length){
+                if(length<=0)throw '길이는 0보다 커야합니다.';
+                this.#length = length;
+            }
+            getP(){
+                return this.#length*4;
+            }
+            getA(){
+                return this.#length*this.#length;
+            }
+        }
+        const square = new Square(10);
+        console.log('둘레 :'+square.getP(),'면적 :'+square.getA());
+        /* 이렇게 내부에 접근해서 값을 줘버리면 값이 넣어져 버린다. */
+        /*
+        const test = new Square(11);
+        test.height = -10;
+        console.log(test);
+        test.length = -20;
+        console.log(test);
+        console.log(test.length);
+        console.log(test.getA());
+        */
+       // 값은 그대로 들어가지만, #length는 square.#length = -10 이렇게 넣어도
+       // 바뀌지 않는다.( 프라이빗 필드로 지정됐기 때문이다. )
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>클래스의 고급기능(클래스 예외처리)</title>
+</head>
+<body>
+    <script>
+        class Rectangle{
+            constructor(width, height){
+                this.width = width;
+                this.height = height;
+            }
+            getP(){
+                return (this.width+this.height)*2;
+            }
+            getA(){
+                return this.width*this.height;
+            }
+        }
+        class Square extends Rectangle{
+            constructor(length){
+                if(length<=0){
+                    throw '길이는 0보다 커야 합니다.'; // 문제가 생기면 서렌을 쳐라.
+                }
+                super(length, length);
+            }
+        }
+        const square = new Square(10);
+        console.log('둘레 :'+square.getP(),'면적 :'+square.getA());
+        const square2 = new Square(-10); // 문제가 생겨서 던졌다.
+        console.log('둘레 :'+square2.getP(),'면적 :'+square2.getA());
+
+
+        /* 이렇게 내부에 접근해서 값을 줘버리면 값이 넣어져 버린다. */
+        const test = new Square(11);
+        test.height = -10;
+        console.log(test);
+        test.length = -20;
+        console.log(test);
+        console.log(test.length);
+        console.log(test.getA());
+        /* 방지 방법 다음 파일.........=> */
+    </script>
+</body>
+</html>

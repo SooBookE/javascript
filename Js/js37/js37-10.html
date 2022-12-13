@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>클래스의 고급기능(클래스 상속)</title>
+</head>
+<body>
+    <script>
+        class Rectangle{
+            constructor(width, height){
+                this.width = width;
+                this.height = height;
+            }
+            getP(){
+                return (this.width+this.height)*2;
+            }
+            getA(){
+                return this.width*this.height;
+            }
+        }
+        class Square extends Rectangle{// Rectangle 클래스에서 상속 받겠다.
+            constructor(length){
+                super(length, length);// constructor(width, height)를 이렇게 상속 받겠다.
+            }
+        }
+        const square = new Square(10);
+        console.log('둘레 :'+square.getP(),'면적 :'+square.getA());
+        const square1 = new Square(10);
+        console.log('둘레1 :'+square1.getP(),'면적1 :'+square1.getA());
+        const square2 = new Square(10,20);// 해보면 앞의 매개변수만 적용된다.
+        console.log('둘레2 :'+square2.getP(),'면적2 :'+square2.getA());
+
+        /* 이렇게 상속을 받으면 코드 길이를 줄일 수 있고, 프로그램도 조금이라도 가벼워진다. */
+        
+    </script>
+</body>
+</html>

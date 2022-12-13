@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>this에 대한 고찰-2</title>
+</head>
+<body>
+    <script>
+       const User = function(name, age){// this를 쓰자 클래스화 되었다.
+        // this = {}; // 지워야 한다.
+        this.name = name;
+        this.age = age;
+        this.show = function(){
+            console.log(name+'&'+age);
+        }
+        // return this; // 지워야 한다.
+       }
+       const test1 = new User('홍길동',24); // new를 적어줘야 실행된다.
+
+       console.log(test1);
+       console.log(test1.name);
+       console.log(test1.age);
+       console.log(test1.show());
+    </script>
+</body>
+</html>

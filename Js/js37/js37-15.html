@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>클래스의 고급기능(get/set)-3</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name, age, gender){
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+            }
+            // getter
+            get age(){
+                return this.#age;
+            }
+            // setter
+            set age(value){
+                if(value>0 && value<90){
+                    this.#age = value;
+                }
+            }
+            print(){
+                console.log('이름: '+this.name + '나이: '+this.#age+'성별: '+this.gender);
+            }
+        }
+
+        const test = new Person('홍길동',20,'남');
+        test.print();
+    </script>
+</body>
+</html>

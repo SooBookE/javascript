@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>this에 대한 고찰</title>
+</head>
+<body>
+    <script>
+       const User = function(name, age){
+        let that = {};// 빈 객체 생성.
+        that.name = name;
+        that.age = age;
+        that.show = function(){
+            console.log(name+'&'+age);
+        }
+        return that;
+       }
+       const test1 = User('홍길동',24); // new를 안 적어줘도 실행되기는 한다.
+
+       console.log(test1);
+       console.log(test1.name);
+       console.log(test1.age);
+       console.log(test1.show());
+    </script>
+</body>
+</html>

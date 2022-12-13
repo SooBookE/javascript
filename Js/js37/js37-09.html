@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>클래스의 고급기능(클래스의 활용)</title>
+</head>
+<body>
+    <script>
+        class Rectangle{
+            constructor(width, height){
+                this.width = width;
+                this.height = height;
+            }
+            getP(){
+                return (this.width+this.height)*2;
+            }
+            getA(){
+                return this.width*this.height;
+            }
+        }// 재사용이 유용하다.
+
+        const rect1 = new Rectangle(10,20);
+        console.log(rect1);
+        console.log('둘레는 '+rect1.getP());
+        console.log('넓이는 '+rect1.getA());
+        
+        const rect2 = new Rectangle(30,40);
+        console.log(rect2);
+        console.log('둘레는 '+rect2.getP());
+        console.log('넓이는 '+rect2.getA());
+    </script>
+</body>
+</html>

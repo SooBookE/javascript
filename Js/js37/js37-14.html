@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>클래스의 고급기능(get/set)-2</title>
+</head>
+<body>
+    <script>
+        /* #해보자. */
+        // 클래스 내부 변수에 #을 붙이면, 내부에서만 사용 가능하고,
+        // 외부에서는 사용할 수 없다.
+        // 외부에서 접근하고 싶으면, set으로 값을 넣는데
+        // this.#name=name;
+        // + 제어도 가능하도록...?
+        class User{
+            constructor(name){
+                this.name = name;
+            }
+            get name(){
+                return this.#name;
+            }
+            set name(value){
+                if(value.length<4){
+                    console.error('값이 너무 짧아요.');
+                    return;
+                }
+                this.#name = value;
+            }/* 못 넣는 걸 넣게 해주니까 중요한 기능이다.★ */
+        }
+
+
+        const test = new User('홍');
+        console.log(test);
+        const test2 = new User('홍길동입니다.');
+        console.log(test2);
+        
+        test2.#name = '빌게이츠입니다.';
+        console.log(test2);
+    </script>
+</body>
+</html>

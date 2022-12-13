@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>연습 문제</title>
+</head>
+<body>
+    <script>
+        /* class 작성해보기.
+        // 위에 클래스 작성해야 함.
+        const x = new Wizard(545, 210, 10);
+        console.log(x.health, x.mana, x.armor);
+        x.attack();
+        
+        출력 결과 : 545 210 10
+                    파이어볼
+        
+        이 되도록 클래스를 작성해보라.*/
+        class Wizard{
+            constructor(h, m, a){
+                this.health=h;
+                this.mana=m;
+                this.armor=a;
+            }// 초기화하는 함수 느낌?
+            /*생성자(constructor) => 1or0
+            
+            없어도 되고, 있어도 되는데, 2개 이상 있으면 안 된다.(초기화 역할)
+            팥 넣고 "초기화". 그 다음은 크림이나 팥 넣고 "초기화".....*/
+
+            /* 그냥 매개변수라서 맘대로 작성해도 되지만,
+            this.매개변수=매개변수가 국룰이다. */
+            attack(){
+                console.log('파이어볼');
+            }
+            magic(){
+                console.log('크리스마스 눈');
+            }
+        }// 클래스 선언.(붕어빵 틀 완성.)
+
+        const x = new Wizard(545,210,10);
+        console.log(x.health, x.mana, x.armor);
+        x.attack();
+        x.magic();
+    </script>
+</body>
+</html>

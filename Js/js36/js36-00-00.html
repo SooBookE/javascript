@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>끝판왕 이어서_이어서</title>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            const h1 = document.createElement("h1");
+            const input = document.createElement("input");
+            const addBtn = document.createElement("button");
+            const delBtn = document.createElement("button");
+            const ent = document.createElement("br");
+             
+            document.body.append(h1, input, addBtn, delBtn, ent);
+             
+            input.setAttribute("id","todo");
+            input.setAttribute("placeholder","Wirte Todo-List");
+            addBtn.setAttribute("id","add-button");
+            h1.innerHTML = '할 일 목록';
+            addBtn.innerHTML = '항목 추가';
+            delBtn.innerHTML = '전체 삭제';
+
+
+            let idxArr = [];
+            let idx = localStorage.getItem("idx")??0;
+            idx==0?idxArr.length=0:idx=idx.split(",");
+            if(idx.length>0){
+                idxArr = [...idx];
+            }
+
+            let arr = [];
+            let update = localStorage.getItem("update")??0;
+            update==0?arr.length=0:update=update.split(",");
+            if(update.length>0){
+                arr = [...update];
+                arr.forEach((v,i)=>{
+                    const checkbox = document.createElement("input");
+                    const write = document.createElement("span");
+                    const clearButton = document.createElement("button");
+                    const br = document.createElement("br");
+
+                    document.body.append(checkbox, write, clearButton, br);
+
+                    checkbox.setAttribute("type","checkbox");
+                    write.innerHTML = v;
+                    clearButton.innerHTML = '제거하기';
+
+                    let inDex=idxArr[i];
+                    function removing(){
+                        arr=arr.filter((_,i)=>{
+                            return idxArr.indexOf(inDex)!=i;    
+                        })
+                        idxArr.splice(idxArr.indexOf(inDex),1);                    
+                    
+                        
+                        document.body.removeChild(checkbox);
+                        document.body.removeChild(write);
+                        document.body.removeChild(clearButton);
+                        document.body.removeChild(br);
+
+                        localStorage.setItem("update",arr);
+                        localStorage.setItem("idx",idxArr);
+                    }
+                
+                    checkbox.addEventListener("change",(event)=>{
+                    let state = event.currentTarget.checked;
+                    write.style.backgroundColor=state?"yellow":"";
+                    state?clearButton.addEventListener("click",removing):clearButton.removeEventListener("click",removing);
+                })
+                })
+            }
+
+            let index = 0;
+            let idxNum = localStorage.getItem("idxNum")??0;
+            if(idxNum>=0){
+                index=idxNum;
+            }
+
+            let isChecked = [];
+            let checkEd = localStorage.getItem("checkArr")??0;
+            checkEd==0?isChecked.length=0:checkEd=checkEd.split(",");
+            if(checkEd.length>0){
+                const checker = document.querySelectorAll("[type='checkbox']");
+                const write = document.querySelectorAll('span');
+                for( let i=0 ; i<idxArr.length ; i++ ){
+                    checkEd[i]=='checked'&&checker[i].setAttribute("checked",'checked');
+                    // checkEd[i]=='checked'&&checker[i].checked=true; // 짧은 조건문에서는 '='이 안 먹힌다.
+                    checkEd[i]=='checked'&&write[i].setAttribute("style","background-color: yellow");
+                }
+            }
+            setInterval(()=>{
+                const checker = document.querySelectorAll("[type='checkbox']");
+                let isChecKed = [];
+                for( let i=0 ; i<idxArr.length ; i++ ){
+                    isChecKed.push(checker[i].checked?'checked':'unchecked');
+                }
+                isChecked=isChecKed;
+                localStorage.setItem("checkArr",isChecked);
+            },500);
+             
+            function auto(){
+                const checkbox = document.createElement("input");
+                const write = document.createElement('span');
+                const clearButton = document.createElement("button");
+                const br = document.createElement("br");
+
+                input.value!=0?document.body.append(checkbox,write,clearButton,br):alert('다시 입력하세요.');
+   
+                checkbox.setAttribute("type","checkbox");
+                write.innerHTML = input.value;
+                clearButton.innerHTML = '제거하기';
+
+                arr.push(input.value);
+                localStorage.setItem("update",arr);
+                
+                let inDex = index;
+                localStorage.setItem("idxNum",index);
+                idxArr.push(inDex);
+                localStorage.setItem("idx",idxArr);
+                function removing(){
+                    
+                    arr=arr.filter((_,i)=>{
+                        return idxArr.indexOf(inDex)!=i;    
+                    })
+                    idxArr.splice(idxArr.indexOf(inDex),1);                  
+                    
+                    
+                    document.body.removeChild(checkbox);
+                    document.body.removeChild(write);
+                    document.body.removeChild(clearButton);
+                    document.body.removeChild(br);
+                    
+                    localStorage.setItem("update",arr);
+                    localStorage.setItem("idx",idxArr);
+                }
+                
+                checkbox.addEventListener("change",(event)=>{
+                    let state = event.currentTarget.checked;
+                    write.style.backgroundColor=state?"yellow":"";
+                    state?clearButton.addEventListener("click",removing):clearButton.removeEventListener("click",removing);
+                })
+                index++;
+
+                input.value='';
+            }
+            addBtn.addEventListener("click",auto);
+            delBtn.addEventListener("click",()=>{
+                const real=confirm('진짜로요?');
+                if(real){
+                    const picker1 = document.querySelectorAll('[type="checkbox"]');
+                    const picker2 = document.querySelectorAll('span');
+                    const picker3 = document.querySelectorAll('button:nth-of-type(n+3)');
+                    const picker4 = document.querySelectorAll("br");
+                    for(let i=0 ; i<index+1 ; i++){
+                        try{
+                            document.body.removeChild(picker1[i]);
+                            document.body.removeChild(picker2[i]);
+                            document.body.removeChild(picker3[i]);
+                            document.body.removeChild(picker4[i]);
+                        }catch{
+                            break;
+                        }
+                    }
+                
+                    arr.length=0;
+                    idxArr.length=0;
+                    index=0;
+                    localStorage.removeItem("update");
+                    localStorage.removeItem("idxNum");
+                    localStorage.removeItem("idx");
+                }
+            })
+            input.addEventListener("keyup",(e)=>{
+                if(e.key=='Enter'){
+                    auto();
+                }
+            });
+        })
+        </script>
+</head>
+<body>
+    
+</body>
+</html>
