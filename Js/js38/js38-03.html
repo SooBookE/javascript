@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>클래스 static-2</title>
+</head>
+<body>
+    <script>
+        class Article{
+            constructor(title, date){
+                this.title =  title;
+                this.date = date;
+            }
+            static compare(articleA, articleB){
+                return articleA.date - articleB.date;
+            }
+            static discompare(articleA, articleB){
+                return articleB.date - articleA.date;
+            }
+        }
+
+        // 사용하기
+        let articles = [
+            new Article('CSS',new Date(2022,11,1)),
+            new Article('Javascript',new Date(2022,12,1)),
+            new Article('HTML',new Date(2022,10,1))
+        ]
+
+        console.log(articles[0].title);
+        console.log(articles[1].title);
+        console.log(articles[2].title);
+        
+        articles.sort(Article.compare)  // ascending
+        console.log(articles[0].title);
+        console.log(articles[1].title);
+        console.log(articles[2].title);
+        articles.sort(Article.discompare) // descending
+        console.log(articles[0].title);
+        console.log(articles[1].title);
+        console.log(articles[2].title);
+
+        /*
+        sort 뒤에는 함수가 필요해서 특정값인 Article.discompare()가 아니라
+        함수 자체인 Article.discompare을 넣었다.
+        */
+    </script>
+</body>
+</html>

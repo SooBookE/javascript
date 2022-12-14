@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>클래스 static</title>
+</head>
+<body>
+    <script>
+        /* 방식1 */
+        // class User{
+        //     static staticMethod(){
+        //         alert(this == User);
+        //     }
+        // }
+        // User.staticMethod(); // 결과: true
+
+        /* 방식2 */
+        class User{};
+        User.staticMethod = function(){
+            alert(this == User);
+        }
+        User.staticMethod(); // 결과: true
+    </script>
+</body>
+</html>

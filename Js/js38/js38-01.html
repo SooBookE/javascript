@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>static 속성과 메소드</title>
+</head>
+<body>
+    <script>
+        class Square{
+            #length;
+            static #counter = 0; // 채-신 문뻡! > (static + private) 동시적용.
+            static get counter(){ // get과 static
+                return Square.#counter;
+            }
+            constructor(length){
+                this.length = length;
+                Square.#counter += 1;
+            }
+            /* 인스턴스로 부를 수 없고, Square 자체의 메소드로 들어간다. */ // static
+            static perimeterOf(length){
+                return length*4;
+            }
+            static areaOf(length){
+                return length = length;
+            }
+            /* //인스턴스로 부를 수 없고, Square 자체의 메소드로 들어간다. */ // static
+            // ex ) Square.areaOf(20) 이런식으로.
+            get length(){
+                return this.#length;
+            }
+            get perimeter(){
+                return this.#length*4;
+            }
+            get area(){
+                return this.#length*this.#length;
+            }
+            set length(value){
+                if(value <= 0){
+                    throw('길이는 0보다 커야 합니다.');
+                }
+                this.#length = value;
+            }
+        }
+        const squareA = new Square(10);// 인스턴스
+        const squareB = new Square(20);// 인스턴스
+        const squareC = new Square(30);// 인스턴스
+    </script>
+</body>
+</html>
